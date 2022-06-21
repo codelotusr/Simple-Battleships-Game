@@ -80,6 +80,10 @@ void Game::play_with_friend()
     std::cin >> player1;
     std::cout << "Please enter Player 2 username: ";
     std::cin >> player2;
+    if (player1 == player2)
+    {
+        throw("Usernames cannot be the same. Please try again.");
+    }
     GameBoard gameboard;
     ++gameboard;
     gameboard.print_board(player1, gameboard.player1_board);

@@ -39,8 +39,10 @@ void GameBoard::operator++(int) //Creates the player2 gameboard
 void GameBoard::print_board(std::string name, std::vector<std::vector<char>> vec) //Prints the gameboard
 {
     std::cout << name << "'s board:\n";
+    std::cout << std::setw(3) << " A" << std::setw(2) << " B " << "C " << "D " << "E " << "F " << "G " << "H " << "I " << "J\n";
     for (unsigned int i = 0; i < rows; i++)
     {
+        std::cout << row_coordinates[i] << " ";
         for (unsigned int j = 0; j < columns; j++)
         {
             std::cout << vec[i][j] << " ";
