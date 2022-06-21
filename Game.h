@@ -5,6 +5,9 @@
 #include <iomanip>
 #include <cstdlib>
 #include <vector>
+#include <set>
+#include <map>
+#include <windows.h>
 
 class Game
 {
@@ -35,9 +38,25 @@ protected:
     std::string player2;
     std::vector<std::vector<char>> player1_board;
     std::vector<std::vector<char>> player2_board;
+    std::vector<std::vector<char>> player1_visible_board;
+    std::vector<std::vector<char>> player2_visible_board;
     std::vector<std::vector<char>> bot_board;
     std::vector<std::vector<char>> bot_visible_board;
+    std::set<std::string> usernames;
 
+};
+
+//Create an exception class for the game
+class GameException : public std::exception
+{
+public:
+    GameException(std::string message) : message(message) {}
+    virtual const char* what() const throw()
+    {
+        return message.c_str();
+    }
+private:
+    std::string message;
 };
 
 

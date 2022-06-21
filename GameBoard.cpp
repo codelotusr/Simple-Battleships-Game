@@ -16,6 +16,7 @@ void GameBoard::operator++() //Creates the player1 gameboard
             player1_board.push_back(v1);
         }
     }
+    player1_visible_board = player1_board;
 }
 
 void GameBoard::operator++(int) //Creates the player2 gameboard
@@ -32,6 +33,7 @@ void GameBoard::operator++(int) //Creates the player2 gameboard
             player2_board.push_back(v2);
         }
     }
+    player2_visible_board = player2_board;
 }
 
 

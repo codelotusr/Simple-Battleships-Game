@@ -60,7 +60,7 @@ void Game::main_menu()
         break;
     default:
         clear_screen();
-        std::cout << "Invalid choice. Please try again.\n";
+        throw(GameException("Invalid choice. Please try again."));
         break;
     }
 }
@@ -78,11 +78,15 @@ void Game::play_with_friend()
     int starting_x, starting_y;
     std::cout << "Please enter Player 1 username: ";
     std::cin >> player1;
+    usernames.insert(player1);
     std::cout << "Please enter Player 2 username: ";
     std::cin >> player2;
-    if (player1 == player2)
-    {
-        throw("Usernames cannot be the same. Please try again.");
+    if (usernames.count(player2)) {
+        clear_screen();
+        throw(GameException("Username already exists. Please try again."));
+    }
+    else {
+        usernames.insert(player2);
     }
     GameBoard gameboard;
     ++gameboard;

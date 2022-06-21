@@ -11,7 +11,7 @@
                 "-std=c++20",
                 "${workspaceFolder}\\*.cpp",
                 "-o",
-                "${fileDirname}\\rooster.exe"
+                "${fileDirname}\\battleships.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -32,7 +32,7 @@
                 "-std=c++20",
                 "${workspaceFolder}\\*.cpp",
                 "-o",
-                "${fileDirname}\\rooster.exe"
+                "${fileDirname}\\battleships.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -52,7 +52,7 @@
                 "/std:c++latest",
                 "/EHsc",
                 "/Fe:",
-                "${fileDirname}\\rooster.exe",
+                "${fileDirname}\\battleships.exe",
                 "${workspaceFolder}\\*.cpp"
             ],
             "options": {
