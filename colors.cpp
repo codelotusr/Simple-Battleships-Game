@@ -1,6 +1,7 @@
 #include <iostream>
 #include "color.hpp"
 
+
 void print_logo()
 {
 std::cout << hue::aqua << R"(
@@ -23,4 +24,9 @@ void print_menu()
     std::cout << hue::bright_white << "4. Scoreboard\n" << hue::reset;
     std::cout << hue::bright_white << "5. Quit\n" << hue::reset;
     std::cout << hue::bright_white << "Enter your choice: " << hue::reset;
+}
+
+void error_message(const std::string message)
+{
+    std::cout << hue::red << message << hue::reset << '\n';
 }

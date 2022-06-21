@@ -2,6 +2,7 @@
 #include "GameBoard.h"
 #include "Player.h"
 #include "Scoreboard.h"
+#include "colorsprint.h"
 
 
 
@@ -20,7 +21,7 @@ int main()
     catch(const GameException& e)
     {
       std::cout << '\n';
-      std::cout << e.what() << '\n';
+      error_message(e.what());
       game.main_menu();
     }
   }

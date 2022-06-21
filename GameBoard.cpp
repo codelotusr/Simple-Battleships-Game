@@ -1,6 +1,7 @@
 
 #include "GameBoard.h"
 #include "Player.h"
+#include "Ships.h"
 
 void GameBoard::operator++() //Creates the player1 gameboard
 {
@@ -34,6 +35,11 @@ void GameBoard::operator++(int) //Creates the player2 gameboard
         }
     }
     player2_visible_board = player2_board;
+}
+
+void GameBoard::insert_player1_ships()
+{
+
 }
 
 
