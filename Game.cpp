@@ -1,34 +1,19 @@
 #include "Game.h"
 #include "GameBoard.h"
+#include "colorsprint.h"
+
 
 
 Game::Game()
     : rows(10), columns(10), player1_points(0), player2_points(0), bot_points(0), playing_status(true), choice(0) {}
 
-Game::~Game()
-{
-}
-
+Game::~Game() {}
 
 
 void Game::main_menu()
 {
-    std::cout << R"(
-██████╗ ██████╗ ██╗███████╗    ██████╗  ██╗    ██╗██████╗     ██████╗  █████╗ ████████╗████████╗██╗     ███████╗███████╗██╗  ██╗██╗██████╗ ███████╗
-██╔══██╗██╔══██╗██║██╔════╝    ╚════██╗███║   ██╔╝╚════██╗    ██╔══██╗██╔══██╗╚══██╔══╝╚══██╔══╝██║     ██╔════╝██╔════╝██║  ██║██║██╔══██╗██╔════╝
-██████╔╝██████╔╝██║█████╗█████╗ █████╔╝╚██║  ██╔╝  █████╔╝    ██████╔╝███████║   ██║      ██║   ██║     █████╗  ███████╗███████║██║██████╔╝███████╗
-██╔═══╝ ██╔══██╗██║██╔══╝╚════╝██╔═══╝  ██║ ██╔╝  ██╔═══╝     ██╔══██╗██╔══██║   ██║      ██║   ██║     ██╔══╝  ╚════██║██╔══██║██║██╔═══╝ ╚════██║
-██║     ██║  ██║██║██║         ███████╗ ██║██╔╝   ███████╗    ██████╔╝██║  ██║   ██║      ██║   ███████╗███████╗███████║██║  ██║██║██║     ███████║
-╚═╝     ╚═╝  ╚═╝╚═╝╚═╝         ╚══════╝ ╚═╝╚═╝    ╚══════╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝     ╚══════╝
-)" << '\n';
-    std::cout << "Welcome to the game of Battleships!\n";
-    std::cout << "Please select an option:\n";
-    std::cout << "1. Play against a friend\n";
-    std::cout << "2. Play against the computer\n";
-    std::cout << "3. Rules\n";
-    std::cout << "4. Scoreboard\n";
-    std::cout << "5. Quit\n";
-    std::cout << "Enter your choice: ";
+    print_logo();
+    print_menu();
     std::cin >> choice;
 
     switch (choice)

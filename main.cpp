@@ -2,7 +2,8 @@
 #include "GameBoard.h"
 #include "Player.h"
 #include "Scoreboard.h"
-#include "color.hpp"
+
+
 
 
 int main() 
@@ -19,7 +20,7 @@ int main()
     catch(const GameException& e)
     {
       std::cout << '\n';
-      std::cout << hue::red << e.what() << hue::reset << '\n';
+      std::cout << e.what() << '\n';
       game.main_menu();
     }
   }
@@ -27,3 +28,5 @@ int main()
 
     return 0;
 }
+
+
