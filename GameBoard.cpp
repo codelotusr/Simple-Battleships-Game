@@ -39,8 +39,29 @@ void GameBoard::operator++(int) //Creates the player2 gameboard
 
 void GameBoard::insert_player1_ships()
 {
-
+    Ships s1;
+    Carrier carrier;
+    Battleship battle;
+    Destroyer destroyer;
+    Submarine sub;
+    PatrolBoat pboat;
+    s1.print_ships(player1, player1_board);
+    carrier.create_ship();
+    clear_screen();
+    s1.print_ships(player1, player1_board);
+    battle.create_ship();
+    clear_screen();
+    s1.print_ships(player1, player1_board);
+    destroyer.create_ship();
+    clear_screen();
+    s1.print_ships(player1, player1_board);
+    sub.create_ship();
+    clear_screen();
+    s1.print_ships(player1, player1_board);
+    pboat.create_ship();
+    s1.print_ships(player1, player1_board);
 }
+
 
 
 

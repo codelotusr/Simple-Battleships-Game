@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "GameBoard.h"
 #include "colorsprint.h"
+#include "Ships.h"
 
 
 
@@ -60,7 +61,6 @@ void Game::clear_screen()
 
 void Game::play_with_friend()
 {
-    int starting_x, starting_y;
     std::cout << "Please enter Player 1 username: ";
     std::cin >> player1;
     usernames.insert(player1);
@@ -75,9 +75,10 @@ void Game::play_with_friend()
     }
     GameBoard gameboard;
     ++gameboard;
-    gameboard.print_board(player1, gameboard.player1_board);
+    gameboard.insert_player1_ships();
+    //gameboard.print_board(player1, gameboard.player1_board);
     gameboard++;
-    gameboard.print_board(player2, gameboard.player2_board);
-    std::cin >> starting_x >> starting_y;
+    //gameboard.print_board(player2, gameboard.player2_board);
+    
 
 }
