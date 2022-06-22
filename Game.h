@@ -32,7 +32,6 @@ protected:
     unsigned int player2_scoreboard_points;
     unsigned int bot_scoreboard_points;
     char water{'~'};
-    char ship{'S'};
     char hit{'X'};
     char miss{'O'};
     std::string player1;
