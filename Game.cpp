@@ -75,7 +75,7 @@ void Game::play_with_friend()
     }
     GameBoard gameboard;
     ++gameboard;
-    gameboard.insert_player1_ships();
+    gameboard.insert_player1_ships(player1);
     //gameboard.print_board(player1, gameboard.player1_board);
     gameboard++;
     //gameboard.print_board(player2, gameboard.player2_board);
