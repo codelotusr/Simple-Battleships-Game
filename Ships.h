@@ -7,12 +7,16 @@ class Ships
 public:
     virtual ~Ships() {}
     virtual void create_ship() = 0;
+    virtual int return_size() = 0;
+    virtual char return_symbol() = 0;
 };
 
 class Carrier : public Ships
 {
 public:
     void create_ship();
+    int return_size() const;
+    char return_symbol() const;
 protected:
     unsigned int ship_size = 5;
     char ship_symbol = 'C';
