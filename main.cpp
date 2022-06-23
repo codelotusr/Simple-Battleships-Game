@@ -21,9 +21,9 @@ int main()
     }
     catch(const GameException& e)
     {
+      system("cls");
       std::cout << '\n';
       error_message(e.what());
-      game.main_menu();
     }
   }
 

@@ -38,7 +38,98 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
     std::cin >> x;
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
-    board[x][y - 65] = ship_symbol;
+    int yy = y - 'A';
+    std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
+    int direction;
+    std::cin >> direction;
+    if (direction == 1)
+    {
+        if (x + ship_size > rows)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x + i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x + i][yy] = ship_symbol;
+
+        }
+    }
+    else if (direction == 2)
+    {
+        if (x - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x - i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x - i][yy] = ship_symbol;
+ 
+        }
+    }
+    else if (direction == 3)
+    {
+        if (yy + ship_size > columns)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy + i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy + i] = ship_symbol;
+            if(board[x][yy + i - 1] == water) board[x][yy - i - 1] = '*';
+            if(board[x][yy + i + 1] == water) board[x][yy - i + 1] = '*';
+            if(board[x - 1][yy + i] == water) board[x - 1][yy - i] = '*';
+            if(board[x + 1][yy + i] == water) board[x + 1][yy - i] = '*';
+        }
+    }
+    else if (direction == 4)
+    {
+        if (yy - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy - i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy - i] = ship_symbol;
+            if(board[x][yy - i - 1] == water) board[x][yy - i - 1] = '*';
+            if(board[x][yy - i + 1] == water) board[x][yy - i + 1] = '*';
+            if(board[x - 1][yy - i] == water) board[x - 1][yy - i] = '*';
+            if(board[x + 1][yy - i] == water) board[x + 1][yy - i] = '*';
+        }
+    }
+    else
+    {
+        throw GameException("Invalid direction.");
+    }
+    
+                  
 }
 
 Battleship::Battleship ()
@@ -57,7 +148,83 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
     std::cin >> x;
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
-    board[x][y - 65] = ship_symbol;
+    int yy = y - 'A';
+    std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
+    int direction;
+    std::cin >> direction;
+
+    if (direction == 1)
+    {
+        if (x + ship_size > rows)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x + i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x + i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 2)
+    {
+        if (x - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x - i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x - i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 3)
+    {
+        if (yy + ship_size > columns)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy + i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy + i] = ship_symbol;
+        }
+    }
+    else if (direction == 4)
+    {
+        if (yy - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy - i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy - i] = ship_symbol;
+        }
+    }
 }
 
 Destroyer::Destroyer ()
@@ -76,7 +243,82 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
     std::cin >> x;
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
-    board[x][y - 65] = ship_symbol;
+    int yy = y - 'A';
+    std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
+    int direction;
+    std::cin >> direction;
+    if (direction == 1)
+    {
+        if (x + ship_size > rows)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x + i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x + i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 2)
+    {
+        if (x - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x - i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x - i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 3)
+    {
+        if (yy + ship_size > columns)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy + i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy + i] = ship_symbol;
+        }
+    }
+    else if (direction == 4)
+    {
+        if (yy - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy - i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy - i] = ship_symbol;
+        }
+    }
 
 }
 
@@ -96,7 +338,82 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
     std::cin >> x;
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
-    board[x][y - 65] = ship_symbol;
+    int yy = y - 'A';
+    std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
+    int direction;
+    std::cin >> direction;
+    if (direction == 1)
+    {
+        if (x + ship_size > rows)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x + i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x + i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 2)
+    {
+        if (x - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x - i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x - i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 3)
+    {
+        if (yy + ship_size > columns)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy + i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy + i] = ship_symbol;
+        }
+    }
+    else if (direction == 4)
+    {
+        if (yy - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy - i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy - i] = ship_symbol;
+        }
+    }
 }
 
 PatrolBoat::PatrolBoat ()
@@ -115,5 +432,80 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
     std::cin >> x;
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
-    board[x][y - 65] = ship_symbol;
+    int yy = y - 'A';
+    std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
+    int direction;
+    std::cin >> direction;
+    if (direction == 1)
+    {
+        if (x + ship_size > rows)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x + i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x + i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 2)
+    {
+        if (x - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x - i][yy] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x - i][yy] = ship_symbol;
+        }
+    }
+    else if (direction == 3)
+    {
+        if (yy + ship_size > columns)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy + i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy + i] = ship_symbol;
+        }
+    }
+    else if (direction == 4)
+    {
+        if (yy - ship_size < 0)
+        {
+            throw GameException("The ship is too long to be placed in the specified direction.");
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            if (board[x][yy - i] != water)
+            {
+                throw GameException("The ship is too long to be placed in the specified direction.");
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy - i] = ship_symbol;
+        }
+    }
 }
