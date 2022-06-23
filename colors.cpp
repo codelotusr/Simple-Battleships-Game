@@ -1,6 +1,11 @@
 #include <iostream>
 #include "color.hpp"
+#include "colorsprint.h"
 
+void clr_screen()
+{
+    system("cls");
+}
 
 void print_logo()
 {
@@ -30,3 +35,17 @@ void error_message(const std::string message)
 {
     std::cout << hue::red << message << hue::reset << '\n';
 }
+
+void print_first_launch()
+{
+    clr_screen();
+    std::cout << hue::light_purple << "Welcome to the game of Battleships! PLEASE READ THE RULES BEFORE PLAYING!!!!!!!!!!!!\n" << hue::reset;
+}
+
+void print_press_enter()
+{
+    std::cout << hue::light_purple << "Press enter to continue..." << hue::reset;
+    std::cin.get();
+    std::cin.get();
+}
+

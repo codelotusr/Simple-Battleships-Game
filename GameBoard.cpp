@@ -2,6 +2,7 @@
 #include "GameBoard.h"
 #include "Player.h"
 #include "Ships.h"
+#include "colorsprint.h"
 
 void GameBoard::operator++() //Creates the player1 gameboard
 {
@@ -59,7 +60,11 @@ void GameBoard::insert_player1_ships(std::string p1)
     clear_screen();
     s1.print_ships(p1, player1_board);
     pboat.create_ship(player1_board);
+    clear_screen();
     s1.print_ships(p1, player1_board);
+    print_press_enter();
+    clear_screen();
+
 }
 
 

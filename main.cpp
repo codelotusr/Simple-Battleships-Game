@@ -12,6 +12,7 @@ int main()
  
   srand(time(NULL));
   Game game;
+  print_first_launch();
   while(game.get_playing_status())
   {
     try
