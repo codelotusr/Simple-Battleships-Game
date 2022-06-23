@@ -67,6 +67,34 @@ void GameBoard::insert_player1_ships(std::string p1)
 
 }
 
+void GameBoard::insert_player2_ships(std::string p2)
+{
+    Ships s2;
+    Carrier carrier;
+    Battleship battle;
+    Destroyer destroyer;
+    Submarine sub;
+    PatrolBoat pboat;
+    s2.print_ships(p2, player2_board);
+    carrier.create_ship(player2_board);
+    clear_screen();
+    s2.print_ships(p2, player2_board);
+    battle.create_ship(player2_board);
+    clear_screen();
+    s2.print_ships(p2, player2_board);
+    destroyer.create_ship(player2_board);
+    clear_screen();
+    s2.print_ships(p2, player2_board);
+    sub.create_ship(player2_board);
+    clear_screen();
+    s2.print_ships(p2, player2_board);
+    pboat.create_ship(player2_board);
+    clear_screen();
+    s2.print_ships(p2, player2_board);
+    print_press_enter();
+    clear_screen();
+}
+
 
 
 
