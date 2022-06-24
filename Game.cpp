@@ -92,12 +92,12 @@ void Game::play_with_friend()
     {
         printings.print_the_colorful_board(player2, gameboard.player2_visible_board);
         printings.print_the_colorful_board(player1, gameboard.player1_board);
-        gameboard.attack(gameboard.player2_board, gameboard.player2_visible_board, gameboard.player1_board, gameboard.player1_visible_board, player2_ships, is_over, player1, player2);
+        gameboard.attack(gameboard.player2_board, gameboard.player2_visible_board, gameboard.player1_board, gameboard.player1_visible_board, player2_ships, is_over, player1, player2, game_scoreboard);
         print_press_enter();
         clear_screen();
         printings.print_the_colorful_board(player1, gameboard.player1_visible_board);
         printings.print_the_colorful_board(player2, gameboard.player2_board);
-        gameboard.attack(gameboard.player1_board, gameboard.player1_visible_board, gameboard.player2_board, gameboard.player2_visible_board, player1_ships, is_over, player2, player1);
+        gameboard.attack(gameboard.player1_board, gameboard.player1_visible_board, gameboard.player2_board, gameboard.player2_visible_board, player1_ships, is_over, player2, player1, game_scoreboard);
         print_press_enter();
         clear_screen();
     }

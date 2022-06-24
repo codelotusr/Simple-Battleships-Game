@@ -132,7 +132,7 @@ void GameBoard::insert_bot_ships()
     clear_screen();
 }
 
-void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::vector<char>> &visible_board, std::vector<std::vector<char>> &board2, std::vector<std::vector<char>> &visible_board2, std::map<std::string, unsigned int> &ship_life, bool &win, std::string name1, std::string name2)
+void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::vector<char>> &visible_board, std::vector<std::vector<char>> &board2, std::vector<std::vector<char>> &visible_board2, std::map<std::string, unsigned int> &ship_life, bool &win, std::string name1, std::string name2, std::map<std::string, unsigned int> &game_scoreboard)
 {
     printing_stuff printingss;
     int x;
@@ -141,6 +141,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
     {
         win = true;
         std::string winner = name1;
+        game_scoreboard[winner]++;
         clear_screen();
         std::cout << "Congratulations! " << winner << " won!" << std::endl;
     }
@@ -152,7 +153,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
     if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
         std::cout << "Invalid coordinates" << std::endl;
-        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2);
+        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == water)
     {
@@ -163,7 +164,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
     else if (board[x][yy] == miss)
     {
         std::cout << "You already attacked this cell!" << std::endl;
-        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2);
+        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == 'C')
     {
@@ -179,7 +180,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
-        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2);
+        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == 'B')
     {
@@ -194,7 +195,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
-        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2);
+        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == 'D')
     {
@@ -209,7 +210,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
-        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2);
+        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == 'S')
     {
@@ -224,7 +225,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
-        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2);
+        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == 'P')
     {
@@ -239,7 +240,7 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
-        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2);
+        attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
 }
     

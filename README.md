@@ -20,3 +20,9 @@ Ships - / /
 colorsprint - / /
 
 (DISCLAIMER: A LOT OF THIS CODE IS BAD PRACTICE, BECAUSE I HAD TO SOMEHOW INCLUDE THE REQUIREMENTS INTO THIS PROJECT)
+
+TO-DO
+Add colors to attack function
+Add rules with polymorphism math facts
+Make the scoreboard
+Create Player vs A.I
