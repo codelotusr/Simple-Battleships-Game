@@ -43,6 +43,11 @@ protected:
     std::vector<std::vector<char>> bot_board;
     std::vector<std::vector<char>> bot_visible_board;
     std::set<std::string> usernames;
+    bool is_over = false;
+    std::map<std::string, unsigned int> player1_ships;
+    std::map<std::string, unsigned int> player2_ships;
+    std::map<std::string, unsigned int> bot_ships;
+    std::map<std::string, unsigned int> game_scoreboard;
 
 };
 

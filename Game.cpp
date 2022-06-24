@@ -61,7 +61,7 @@ void Game::clear_screen()
 
 void Game::play_with_friend()
 {
-    bool is_over = false;
+    usernames.clear();
     std::cout << "Please enter Player 1 username: ";
     std::cin >> player1;
     usernames.insert(player1);
