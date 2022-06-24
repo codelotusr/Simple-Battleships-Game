@@ -9,6 +9,7 @@ void print_menu();
 void error_message(const std::string message);
 void print_first_launch();
 void print_press_enter();
+void print_colorful_scoreboard_sign();
 
 class printing_stuff : public Game
 {

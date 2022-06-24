@@ -2,6 +2,7 @@
 #include "GameBoard.h"
 #include "colorsprint.h"
 #include "Ships.h"
+#include "Scoreboard.h"
 
 
 
@@ -37,7 +38,7 @@ void Game::main_menu()
     case 4:
         //scoreboard
         clear_screen();
-        //scoreboard();
+        scoreboard();
         break;
     case 5:
         //quit
@@ -101,5 +102,11 @@ void Game::play_with_friend()
         print_press_enter();
         clear_screen();
     }
+}
+
+void Game::scoreboard()
+{
+    Scoreboard scoreboard;
+    scoreboard.print_scoreboard(game_scoreboard);
 }
 

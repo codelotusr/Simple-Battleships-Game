@@ -6,10 +6,7 @@
 class Scoreboard : public Game
 {
 public:
-    virtual void add_score(std::string name, unsigned int points);
-    void print_scoreboard();
-    void clear_scoreboard();
-    void sort_scoreboard();
+    void print_scoreboard(std::map<std::string, unsigned int> &game_scoreboard); //Prints the scoreboard
 };
 
 

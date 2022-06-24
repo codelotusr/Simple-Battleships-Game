@@ -20,6 +20,7 @@ public:
     void clear_screen();
     void play_with_friend();
     void play_with_bot();
+    void scoreboard();
 
 protected:
     const unsigned int rows;
