@@ -85,8 +85,8 @@ void Game::play_with_friend()
         printings.print_the_colorful_board(player2, gameboard.player2_visible_board);
         printings.print_the_colorful_board(player1, gameboard.player1_board);
         print_press_enter();
-        printings.print_the_colorful_board(player2, gameboard.player2_visible_board);
-        printings.print_the_colorful_board(player1, gameboard.player1_board);
+        printings.print_the_colorful_board(player1, gameboard.player1_visible_board);
+        printings.print_the_colorful_board(player2, gameboard.player2_board);
         print_press_enter();
     }
 }
