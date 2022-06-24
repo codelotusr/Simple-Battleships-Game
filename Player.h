@@ -5,7 +5,7 @@
 class Player : Game
 {
 public:
-
+    void attack(std::string, std::vector<std::vector<char>>, std::vector<std::vector<char>>);
 
 };
 

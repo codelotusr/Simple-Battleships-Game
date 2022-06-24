@@ -78,6 +78,6 @@ void printing_stuff::print_the_colorful_board(std::string name, std::vector<std:
             }   
         }
         std::cout << std::endl;
-        }
-        std::cout << std::endl;
+    }
+    std::cout << std::endl;
 }
