@@ -79,10 +79,11 @@ void Game::play_with_friend()
     gameboard.insert_player1_ships(player1);
     gameboard++;
     gameboard.insert_player2_ships(player2);
+    printing_stuff printings;
     while (!is_over)
     {
-        gameboard.print_board(player1, gameboard.player1_visible_board);
-        gameboard.print_board(player1, gameboard.player1_board);
+        printings.print_the_colorful_board(player2, gameboard.player2_visible_board);
+        printings.print_the_colorful_board(player1, gameboard.player1_board);
         std::cin.get();
         std::cin.get();
     }

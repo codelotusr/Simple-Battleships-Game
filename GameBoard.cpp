@@ -46,22 +46,23 @@ void GameBoard::insert_player1_ships(std::string p1)
     Destroyer destroyer;
     Submarine sub;
     PatrolBoat pboat;
-    s1.print_ships(p1, player1_board);
+    printing_stuff printing;
+    printing.print_the_colorful_board(p1, player1_board);
     carrier.create_ship(player1_board);
     clear_screen();
-    s1.print_ships(p1, player1_board);
+    printing.print_the_colorful_board(p1, player1_board);
     battle.create_ship(player1_board);
     clear_screen();
-    s1.print_ships(p1, player1_board);
+    printing.print_the_colorful_board(p1, player1_board);
     destroyer.create_ship(player1_board);
     clear_screen();
-    s1.print_ships(p1, player1_board);
+    printing.print_the_colorful_board(p1, player1_board);
     sub.create_ship(player1_board);
     clear_screen();
-    s1.print_ships(p1, player1_board);
+    printing.print_the_colorful_board(p1, player1_board);
     pboat.create_ship(player1_board);
     clear_screen();
-    s1.print_ships(p1, player1_board);
+    printing.print_the_colorful_board(p1, player1_board);
     print_press_enter();
     clear_screen();
 
@@ -75,41 +76,23 @@ void GameBoard::insert_player2_ships(std::string p2)
     Destroyer destroyer;
     Submarine sub;
     PatrolBoat pboat;
-    s2.print_ships(p2, player2_board);
+    printing_stuff printing;
+    printing.print_the_colorful_board(p2, player2_board);
     carrier.create_ship(player2_board);
     clear_screen();
-    s2.print_ships(p2, player2_board);
+    printing.print_the_colorful_board(p2, player2_board);
     battle.create_ship(player2_board);
     clear_screen();
-    s2.print_ships(p2, player2_board);
+    printing.print_the_colorful_board(p2, player2_board);
     destroyer.create_ship(player2_board);
     clear_screen();
-    s2.print_ships(p2, player2_board);
+    printing.print_the_colorful_board(p2, player2_board);
     sub.create_ship(player2_board);
     clear_screen();
-    s2.print_ships(p2, player2_board);
+    printing.print_the_colorful_board(p2, player2_board);
     pboat.create_ship(player2_board);
     clear_screen();
-    s2.print_ships(p2, player2_board);
+    printing.print_the_colorful_board(p2, player2_board);
     print_press_enter();
     clear_screen();
-}
-
-
-
-
-void GameBoard::print_board(std::string name, std::vector<std::vector<char>> vec) //Prints the gameboard
-{
-    std::cout << name << "'s board:\n";
-    std::cout << std::setw(3) << " A" << std::setw(2) << " B " << "C " << "D " << "E " << "F " << "G " << "H " << "I " << "J\n";
-    for (unsigned int i = 0; i < rows; i++)
-    {
-        std::cout << row_coordinates[i] << " ";
-        for (unsigned int j = 0; j < columns; j++)
-        {
-            std::cout << vec[i][j] << " ";
-        }
-        std::cout << std::endl;
-    }
-    std::cout << std::endl;
 }
