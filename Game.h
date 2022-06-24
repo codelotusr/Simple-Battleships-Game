@@ -24,9 +24,6 @@ public:
 protected:
     const unsigned int rows;
     const unsigned int columns;
-    unsigned int player1_points;
-    unsigned int player2_points;
-    unsigned int bot_points;
     bool playing_status;
     unsigned int choice;
     unsigned int player1_scoreboard_points;

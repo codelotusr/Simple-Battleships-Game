@@ -6,7 +6,7 @@
 
 
 Game::Game()
-    : rows(10), columns(10), player1_points(0), player2_points(0), bot_points(0), playing_status(true), choice(0) {}
+    : rows(10), columns(10), playing_status(true), choice(0) {}
 
 Game::~Game() {}
 
@@ -27,7 +27,7 @@ void Game::main_menu()
     case 2:
         //play against the computer
         clear_screen();
-        play_with_bot();
+        //play_with_bot();
         break;
     case 3:
         //rules
@@ -92,20 +92,14 @@ void Game::play_with_friend()
     {
         printings.print_the_colorful_board(player2, gameboard.player2_visible_board);
         printings.print_the_colorful_board(player1, gameboard.player1_board);
+        gameboard.attack(gameboard.player2_board, gameboard.player2_visible_board, gameboard.player1_board, gameboard.player1_visible_board, player2_ships, is_over, player1, player2);
         print_press_enter();
+        clear_screen();
         printings.print_the_colorful_board(player1, gameboard.player1_visible_board);
         printings.print_the_colorful_board(player2, gameboard.player2_board);
+        gameboard.attack(gameboard.player1_board, gameboard.player1_visible_board, gameboard.player2_board, gameboard.player2_visible_board, player1_ships, is_over, player2, player1);
         print_press_enter();
+        clear_screen();
     }
 }
 
-void Game::play_with_bot()
-{
-    GameBoard gameboard;
-    --gameboard;
-    gameboard.insert_bot_ships();
-    printing_stuff printings;
-    printings.print_the_colorful_board("Bot", gameboard.bot_visible_board);
-    print_press_enter();
-
-}
