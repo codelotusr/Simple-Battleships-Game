@@ -19,6 +19,7 @@ public:
     inline bool get_playing_status() const { return this->playing_status; }
     void clear_screen();
     void play_with_friend();
+    void play_with_bot();
 
 protected:
     const unsigned int rows;

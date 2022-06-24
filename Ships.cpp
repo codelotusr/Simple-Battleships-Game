@@ -181,6 +181,72 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
     }              
 }
 
+//createa function that randomly generates the bot ship placement
+void Carrier::create_bot_ship(unsigned int &bot_x, unsigned int &bot_y, unsigned int &direction, std::vector<std::vector<char>> &board)
+{
+    unsigned int rows = board.size();
+    unsigned int columns = board[0].size();
+    unsigned int random_x = rand() % rows;
+    unsigned int random_y = rand() % columns;
+    unsigned int random_direction = rand() % 4;
+    if (random_direction == 0)
+    {
+        if (random_x + ship_size > rows)
+        {
+            create_bot_ship(bot_x, bot_y, direction, board);
+        }
+        else
+        {
+            bot_x = random_x;
+            bot_y = random_y;
+            direction = random_direction;
+        }
+    }
+    else if (random_direction == 1)
+    {
+        if (random_y + ship_size > columns)
+        {
+            create_bot_ship(bot_x, bot_y, direction, board);
+        }
+        else
+        {
+            bot_x = random_x;
+            bot_y = random_y;
+            direction = random_direction;
+        }
+    }
+    else if (random_direction == 2)
+    {
+        if (random_x - ship_size < 0)
+        {
+            create_bot_ship(bot_x, bot_y, direction, board);
+        }
+        else
+        {
+            bot_x = random_x;
+            bot_y = random_y;
+            direction = random_direction;
+        }
+    }
+    else if (random_direction == 3)
+    {
+        if (random_y - ship_size < 0)
+        {
+            create_bot_ship(bot_x, bot_y, direction, board);
+        }
+        else
+        {
+            bot_x = random_x;
+            bot_y = random_y;
+            direction = random_direction;
+        }
+    }
+    else
+    {
+        throw GameException("Invalid direction.");
+    }
+}
+
 Battleship::Battleship ()
 {
     ship_size = 4;

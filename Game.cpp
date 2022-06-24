@@ -27,7 +27,7 @@ void Game::main_menu()
     case 2:
         //play against the computer
         clear_screen();
-        //play_with_bot();
+        play_with_bot();
         break;
     case 3:
         //rules
@@ -97,4 +97,15 @@ void Game::play_with_friend()
         printings.print_the_colorful_board(player2, gameboard.player2_board);
         print_press_enter();
     }
+}
+
+void Game::play_with_bot()
+{
+    GameBoard gameboard;
+    --gameboard;
+    gameboard.insert_bot_ships();
+    printing_stuff printings;
+    printings.print_the_colorful_board("Bot", gameboard.bot_visible_board);
+    print_press_enter();
+
 }

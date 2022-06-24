@@ -17,6 +17,7 @@ class Carrier : public Ships
 public:
     Carrier();
     void create_ship(std::vector<std::vector<char>> &board);
+    void create_bot_ship(unsigned int &x, unsigned int &y, unsigned int &bot_direction, std::vector<std::vector<char>> &board);
 protected:
     unsigned int ship_size;
     char ship_symbol;

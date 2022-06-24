@@ -38,6 +38,23 @@ void GameBoard::operator++(int) //Creates the player2 gameboard
     player2_visible_board = player2_board;
 }
 
+void GameBoard::operator--() //Creates the bot gameboard
+{
+    for (unsigned int i = 0; i < rows; i++)
+    {
+        for (unsigned int j = 0; j < columns; j++)
+        {
+            std::vector<char> v3;
+            for (int j = 0; j < columns; j++) 
+            {
+                v3.push_back(water);
+            }
+            bot_board.push_back(v3);
+        }
+    }
+    bot_visible_board = bot_board;
+}
+
 void GameBoard::insert_player1_ships(std::string p1)
 {
     Ships s1;
@@ -93,6 +110,25 @@ void GameBoard::insert_player2_ships(std::string p2)
     pboat.create_ship(player2_board);
     clear_screen();
     printing.print_the_colorful_board(p2, player2_board);
+    print_press_enter();
+    clear_screen();
+}
+
+void GameBoard::insert_bot_ships()
+{
+    unsigned int direction;
+    unsigned int x, y;
+    Ships s3;
+    Carrier carrier;
+    Battleship battle;
+    Destroyer destroyer;
+    Submarine sub;
+    PatrolBoat pboat;
+    printing_stuff printing;
+    printing.print_the_colorful_board("Bot", bot_board);
+    carrier.create_bot_ship(x, y, direction, bot_board);
+    clear_screen();
+    printing.print_the_colorful_board("Bot", bot_board);
     print_press_enter();
     clear_screen();
 }
