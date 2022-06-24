@@ -44,9 +44,9 @@ protected:
     std::vector<std::vector<char>> bot_visible_board;
     std::set<std::string> usernames;
     bool is_over = false;
-    std::map<std::string, unsigned int> player1_ships;
-    std::map<std::string, unsigned int> player2_ships;
-    std::map<std::string, unsigned int> bot_ships;
+    std::map<std::string, unsigned int> player1_ships = {{"C", 5}, {"B", 4}, {"D", 3}, {"S", 3}, {"P", 2}};
+    std::map<std::string, unsigned int> player2_ships = {{"C", 5}, {"B", 4}, {"D", 3}, {"S", 3}, {"P", 2}};
+    std::map<std::string, unsigned int> bot_ships = {{"C", 5}, {"B", 4}, {"D", 3}, {"S", 3}, {"P", 2}};
     std::map<std::string, unsigned int> game_scoreboard;
 
 };

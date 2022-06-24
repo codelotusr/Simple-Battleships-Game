@@ -74,6 +74,14 @@ void Game::play_with_friend()
     else {
         usernames.insert(player2);
     }
+    if (game_scoreboard.find(player1) == game_scoreboard.end()) 
+    {
+        game_scoreboard[player1] = 0;
+    }
+    if (game_scoreboard.find(player2) == game_scoreboard.end())
+    {
+        game_scoreboard[player2] = 0;
+    }
     GameBoard gameboard;
     ++gameboard;
     gameboard.insert_player1_ships(player1);
