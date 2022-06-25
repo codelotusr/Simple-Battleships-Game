@@ -9,7 +9,7 @@
 Game::Game()
     : rows(10), columns(10), playing_status(true), choice(0) {}
 
-Game::~Game() {}
+Game::~Game() { }
 
 
 void Game::main_menu()
@@ -88,6 +88,11 @@ void Game::play_with_friend()
     gameboard.insert_player1_ships(player1);
     gameboard++;
     gameboard.insert_player2_ships(player2);
+    player1_ships.clear();
+    player2_ships.clear();
+    player1_ships = {{"C", 5}, {"B", 4}, {"D", 3}, {"S", 3}, {"P", 2}};
+    player2_ships = {{"C", 5}, {"B", 4}, {"D", 3}, {"S", 3}, {"P", 2}};
+    is_over = false;
     printing_stuff printings;
     while (!is_over)
     {
