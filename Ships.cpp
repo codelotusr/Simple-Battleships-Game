@@ -213,9 +213,9 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board, std::string &is
 
 void Carrier::create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error)
 {
-    unsigned int x = rand() % (rows - 1);
-    unsigned int yy = rand() % (columns - 1);
-    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
+    unsigned int x = rand() % rows;
+    unsigned int yy = rand() % columns;
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
         is_error = "true";
         return;
@@ -581,9 +581,9 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board, std::string
 
 void Battleship::create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error)
 {
-    unsigned int x = rand() % (rows - 1);
-    unsigned int yy = rand() % (columns - 1);
-    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
+    unsigned int x = rand() % rows;
+    unsigned int yy = rand() % columns;
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
         is_error = "true";
         return;
@@ -949,9 +949,9 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board, std::string 
 
 void Destroyer::create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error)
 {
-    unsigned int x = rand() % (rows - 1);
-    unsigned int yy = rand() % (columns - 1);
-    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
+    unsigned int x = rand() % rows;
+    unsigned int yy = rand() % columns;
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
         is_error = "true";
         return;
@@ -1316,9 +1316,9 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board, std::string 
 
 void Submarine::create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error)
 {
-    unsigned int x = rand() % (rows - 1);
-    unsigned int yy = rand() % (columns - 1);
-    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
+    unsigned int x = rand() % rows;
+    unsigned int yy = rand() % columns;
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
         is_error = "true";
         return;
@@ -1692,9 +1692,9 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board, std::string
 
 void PatrolBoat::create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error)
 {
-    unsigned int x = rand() % (rows - 1);
-    unsigned int yy = rand() % (columns - 1);
-    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
+    unsigned int x = rand() % rows;
+    unsigned int yy = rand() % columns;
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
         is_error = "true";
         return;
