@@ -63,22 +63,36 @@ void GameBoard::insert_player1_ships(std::string p1)
     Submarine sub;
     PatrolBoat pboat;
     printing_stuff printing;
-    printing.print_the_colorful_board(p1, player1_board);
-    carrier.create_ship(player1_board);
-    clear_screen();
-    printing.print_the_colorful_board(p1, player1_board);
-    battle.create_ship(player1_board);
-    clear_screen();
-    printing.print_the_colorful_board(p1, player1_board);
-    destroyer.create_ship(player1_board);
-    clear_screen();
-    printing.print_the_colorful_board(p1, player1_board);
-    sub.create_ship(player1_board);
-    clear_screen();
-    printing.print_the_colorful_board(p1, player1_board);
-    pboat.create_ship(player1_board);
-    clear_screen();
-    printing.print_the_colorful_board(p1, player1_board);
+    std::string is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p1, player1_board);
+        carrier.create_ship(player1_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p1, player1_board);
+        battle.create_ship(player1_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p1, player1_board);
+        destroyer.create_ship(player1_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p1, player1_board);
+        sub.create_ship(player1_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p1, player1_board);
+        pboat.create_ship(player1_board, is_error);
+        clear_screen();
+    }
     print_press_enter();
     clear_screen();
 
@@ -93,22 +107,36 @@ void GameBoard::insert_player2_ships(std::string p2)
     Submarine sub;
     PatrolBoat pboat;
     printing_stuff printing;
-    printing.print_the_colorful_board(p2, player2_board);
-    carrier.create_ship(player2_board);
-    clear_screen();
-    printing.print_the_colorful_board(p2, player2_board);
-    battle.create_ship(player2_board);
-    clear_screen();
-    printing.print_the_colorful_board(p2, player2_board);
-    destroyer.create_ship(player2_board);
-    clear_screen();
-    printing.print_the_colorful_board(p2, player2_board);
-    sub.create_ship(player2_board);
-    clear_screen();
-    printing.print_the_colorful_board(p2, player2_board);
-    pboat.create_ship(player2_board);
-    clear_screen();
-    printing.print_the_colorful_board(p2, player2_board);
+    std::string is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p2, player2_board);
+        carrier.create_ship(player2_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p2, player2_board);
+        battle.create_ship(player2_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p2, player2_board);
+        destroyer.create_ship(player2_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p2, player2_board);
+        sub.create_ship(player2_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(p2, player2_board);
+        pboat.create_ship(player2_board, is_error);
+        clear_screen();
+    }
     print_press_enter();
     clear_screen();
 }
@@ -125,6 +153,7 @@ void GameBoard::insert_bot_ships(std::string bot_name)
     PatrolBoat pboat;
     printing_stuff printing;
     carrier.create_bot_ship(bot_board);
+    //battle.create_bot_ship(bot_board);
     printing.print_the_colorful_board(bot_name, bot_board);
     print_press_enter();
     clear_screen();
