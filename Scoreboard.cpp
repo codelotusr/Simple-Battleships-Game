@@ -1,5 +1,6 @@
 #include "Scoreboard.h"
 #include "colorsprint.h"
+#include <set>
 #include <algorithm>
 
 

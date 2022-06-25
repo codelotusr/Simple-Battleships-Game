@@ -162,13 +162,18 @@ void you_sunk_a_patrol_colored() {
 
 void print_scoreboard_colored(std::vector<std::string> names1, std::vector<unsigned int> scores1, std::map<std::string, unsigned int> game_scoreboard1)
 {
+    std::set<std::string> names_set;
     for (unsigned int i = 0; i < scores1.size(); i++)
     {
         for (unsigned int j = 0; j < names1.size(); j++)
         {
-            if (scores1[i] == game_scoreboard1[names1[j]])
+            if (scores1[i] == game_scoreboard1[names1[j]] )
             {
-                std::cout << hue::light_yellow << names1[j] << ": " << scores1[i] << hue::reset << std::endl;
+                if (names_set.find(names1[j]) == names_set.end())
+                {
+                    std::cout << hue::light_yellow << names1[j] << ": " << scores1[i] << hue::reset << '\n';
+                    names_set.insert(names1[j]);
+                }
             }
         }
     }

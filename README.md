@@ -23,5 +23,4 @@ colorsprint - / /
 
 TO-DO
 Fix the multiple game scoreboard error
-Make ship creation error print the board and check for valid coordinates
 Create Player vs A.I
