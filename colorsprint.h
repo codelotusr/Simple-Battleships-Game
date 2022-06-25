@@ -30,6 +30,7 @@ void print_scoreboard_colored(std::vector<std::string> names1, std::vector<unsig
 void print_no_scores_yet_colored();
 void print_too_long_colord();
 void print_invalid_direction_colored();
+void print_the_colorful_rules();
 
 class printing_stuff : public Game
 {

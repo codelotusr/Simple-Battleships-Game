@@ -186,4 +186,16 @@ void print_invalid_direction_colored() {
     std::cout << hue::light_red << "Invalid direction!\n" << hue::reset;
 }
 
+void print_the_colorful_rules()
+{
+    std::cout << hue::light_yellow << "The rules are simple: \n" << hue::reset;
+    std::cout << hue::light_yellow << "You have 5 ships to destroy.\n" << hue::reset;
+    std::cout << hue::light_yellow << "Each ship has a different length.\n" << hue::reset;
+    std::cout << hue::light_yellow << "Carrier - 5, Battleship - 4, Destroyer - 3, Submarine - 3, and Patrol boat - 2.\n" << hue::reset;
+    std::cout << hue::light_yellow << "You can place your ships in any direction, as long as they do not go out of bounds, and you cannot place ships directly next to each other.\n" << hue::reset;
+    std::cout << hue::light_yellow << "You can attack any cell that is withing the bounds of the game board.\n" << hue::reset;
+    std::cout << hue::light_yellow << "The player that destroys all of the other players ships first wins.\n" << hue::reset;
+    std::cout << hue::light_yellow << "Good luck!\n" << hue::reset;
+}
+
 

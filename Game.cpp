@@ -4,7 +4,7 @@
 #include "Ships.h"
 #include "Scoreboard.h"
 #include "Rules.h"
-
+#include <iostream>
 
 
 Game::Game()
@@ -34,7 +34,7 @@ void Game::main_menu()
     case 3:
         //rules
         clear_screen();
-        //rules();
+        game_rules();
         break;
     case 4:
         //scoreboard
@@ -114,5 +114,53 @@ void Game::scoreboard()
 {
     Scoreboard scoreboard;
     scoreboard.print_scoreboard(game_scoreboard);
+}
+
+void Game::game_rules()
+{
+    int ch = (rand() % 2);
+    std::cout << "To get your brain up and working, we will start of with a simple math game.\n";
+    std::cout << "You will be given a shape and its sides and you must answer what its area and perimeter is:)\n";
+    if (ch == 0)
+    {
+        int answ;
+        Wectangle wectangle(10, 10);
+        std::cout << "The shape is a " << wectangle.get_name() << " with " << wectangle.get_length() << " length and, " << wectangle.get_width() << " width.\n";
+        wectangle.draw();
+        std::cout << "What is the perimeter of this shape? ";
+        std::cin >> answ;
+        if (answ == wectangle.perimeter())
+        {
+            std::cout << "Correct! Your brain is ready to read the rules\n";
+        }
+        else
+        {
+            std::cout << "The answer is " << wectangle.perimeter() << ".\n";
+            std::cout << "Wrong! better luck next time!\n";
+        }
+    }
+    else
+    {
+        int answ;
+        Triangle triangle(10, 10);
+        std::cout << "The shape is a " << triangle.get_name() << " with " << triangle.get_base() << " base and, " << triangle.get_height() << " height.\n";
+        triangle.draw();
+        std::cout << "What is the area of this shape? (assume it is a right triangle) ";
+        std::cin >> answ;
+        if (answ == triangle.area())
+        {
+            std::cout << "Correct! Your brain is ready to read the rules\n";
+        }
+        else
+        {
+            std::cout << "The answer is " << triangle.area() << ".\n";
+            std::cout << "Wrong! better luck next time!\n";
+        }
+    }
+    print_press_enter();
+    clear_screen();
+    print_the_colorful_rules();
+    print_press_enter();
+    
 }
 

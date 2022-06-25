@@ -17,6 +17,7 @@ public:
     virtual ~Game();
     void main_menu();
     inline bool get_playing_status() const { return this->playing_status; }
+    void game_rules();
     void clear_screen();
     void play_with_friend();
     void play_with_bot();

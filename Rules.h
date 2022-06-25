@@ -1,64 +1,49 @@
-#ifndef RULES.H
-#define RULES.H
+#ifndef RULES_H
+#define RULES_H
+#include <cmath>
+#include <string>
 
-
-class Vehicle
+class Shape
 {
 public:
-    virtual void print_vehicle() = 0;
+    virtual void draw() const = 0;
     virtual double area() const = 0;
     virtual double perimeter() const = 0;
 };
 
-
-class AircraftCarrier : public Vehicle
+class Wectangle : public Shape
 {
 public:
-    void print_vehicle() override;
+    Wectangle(double length, double width);
+    ~Wectangle();
+    void draw() const override;
     double area() const override;
     double perimeter() const override;
+    std::string get_name() const;
+    double get_length() const;
+    double get_width() const;
+private:
+    double length;
+    double width;
+    std::string name = "Rectangle";
 };
 
-//create a class for the battleship
-class Battleship : public Vehicle
+class Triangle : public Shape
 {
 public:
-    void print_vehicle() override;
+    Triangle(double base, double height);
+    ~Triangle();
+    void draw() const override;
     double area() const override;
     double perimeter() const override;
+    std::string get_name() const;
+    double get_base() const;
+    double get_height() const;
+private:
+    double base;
+    double height;
+    std::string name = "Triangle";
 };
-
-//create a class for the destroyer
-class Destroyer : public Vehicle
-{
-public:
-    void print_vehicle() override;
-    double area() const override;
-    double perimeter() const override;
-};
-
-//create a class for the submarine
-class Submarine : public Vehicle
-{
-public:
-    void print_vehicle() override;
-    double area() const override;
-    double perimeter() const override;
-};
-
-//create a class for the patrol boat
-class PatrolBoat : public Vehicle
-{
-public:
-    void print_vehicle() override;
-    double area() const override;
-    double perimeter() const override;
-};
-
-
-
-
-
 
 
 
