@@ -22,7 +22,6 @@ colorsprint - / /
 (DISCLAIMER: A LOT OF THIS CODE IS BAD PRACTICE, BECAUSE I HAD TO SOMEHOW INCLUDE THE REQUIREMENTS INTO THIS PROJECT)
 
 TO-DO
-Add colors to attack function
-Add rules with polymorphism math facts
 Fix the recursion on the ship creation
+Add rules with polymorphism math facts
 Create Player vs A.I

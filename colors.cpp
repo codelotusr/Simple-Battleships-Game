@@ -178,4 +178,12 @@ void print_no_scores_yet_colored() {
     std::cout << hue::light_yellow << "No scores yet!\n" << hue::reset;
 }
 
+void print_too_long_colord() {
+    std::cout << hue::light_red << "The ship is too long to be placed in the specified direction.\n" << hue::reset;
+}
+
+void print_invalid_direction_colored() {
+    std::cout << hue::light_red << "Invalid direction!\n" << hue::reset;
+}
+
 

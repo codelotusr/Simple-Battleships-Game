@@ -28,6 +28,8 @@ void you_hit_a_patrol_colored();
 void you_sunk_a_patrol_colored();
 void print_scoreboard_colored(std::vector<std::string> names1, std::vector<unsigned int> scores1, std::map<std::string, unsigned int> game_scoreboard1);
 void print_no_scores_yet_colored();
+void print_too_long_colord();
+void print_invalid_direction_colored();
 
 class printing_stuff : public Game
 {
