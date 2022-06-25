@@ -24,6 +24,5 @@ colorsprint - / /
 TO-DO
 Add colors to attack function
 Add rules with polymorphism math facts
-Make the scoreboard
 Fix the recursion on the ship creation
 Create Player vs A.I

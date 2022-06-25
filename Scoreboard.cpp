@@ -5,7 +5,6 @@
 
 void Scoreboard::print_scoreboard(std::map<std::string, unsigned int> &game_scoreboard)
 {
-    //sort the scoreboard in descending order and print it to the screen
     std::map<std::string, unsigned int>::iterator it;
     std::vector<std::string> names;
     std::vector<unsigned int> scores;
@@ -17,15 +16,13 @@ void Scoreboard::print_scoreboard(std::map<std::string, unsigned int> &game_scor
     std::sort(scores.begin(), scores.end(), std::greater<unsigned int>());
     clear_screen();
     print_colorful_scoreboard_sign();
-    for (unsigned int i = 0; i < scores.size(); i++)
+    if (game_scoreboard.empty())
     {
-        for (unsigned int j = 0; j < names.size(); j++)
-        {
-            if (scores[i] == game_scoreboard[names[j]])
-            {
-                std::cout << names[j] << ": " << scores[i] << std::endl;
-            }
-        }
+        print_no_scores_yet_colored();
+    }
+    else
+    {
+        print_scoreboard_colored(names, scores, game_scoreboard);
     }
     print_press_enter();
     clear_screen();

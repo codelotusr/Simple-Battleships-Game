@@ -143,27 +143,27 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         std::string winner = name1;
         game_scoreboard[winner]++;
         clear_screen();
-        std::cout << "Congratulations! " << winner << " won!" << std::endl;
+        print_the_winner(winner);
     }
     if (!win)
     {
-        std::cout << "Enter the coordinates of the attack: ";
+    enter_coordinates_attack_colored();
     std::cin >> x >> y;
     int yy = y - 'A';
     if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
-        std::cout << "Invalid coordinates" << std::endl;
+        invalid_coordinates_colored();
         attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == water)
     {
-        std::cout << "You missed!" << std::endl;
+        you_missed_colored();
         visible_board[x][yy] = miss;
         board[x][yy] = miss;
     }
     else if (board[x][yy] == miss)
     {
-        std::cout << "You already attacked this cell!" << std::endl;
+        you_already_attacked_this_cell_colored();
         attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][yy] == 'C')
@@ -173,10 +173,10 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         board[x][yy] = hit;
         ship_life["C"]--;
         clear_screen();
-        std::cout << "You hit a carrier!" << std::endl;
+        you_hit_a_carrier_colored();
         if (ship_life["C"] == 0)
         {
-            std::cout << "You sunk the carrier!" << std::endl;
+            you_sunk_a_carrier_colored();
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
@@ -188,10 +188,10 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         board[x][yy] = hit;
         ship_life["B"]--;
         clear_screen();
-        std::cout << "You hit a battleship!" << std::endl;
+        you_hit_a_battleship_colored();
         if (ship_life["B"] == 0)
         {
-            std::cout << "You sunk the battleship!" << std::endl;
+            you_sunk_a_battleship_colored();
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
@@ -203,10 +203,10 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         board[x][yy] = hit;
         ship_life["D"]--;
         clear_screen();
-        std::cout << "You hit a destroyer!" << std::endl;
+        you_hit_a_destroyer_colored();
         if (ship_life["D"] == 0)
         {
-            std::cout << "You sunk the destroyer!" << std::endl;
+            you_sunk_a_destroyer_colored();
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
@@ -218,10 +218,10 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         board[x][yy] = hit;
         ship_life["S"]--;
         clear_screen();
-        std::cout << "You hit a submarine!" << std::endl;
+        you_hit_a_submarine_colored();
         if (ship_life["S"] == 0)
         {
-            std::cout << "You sunk the submarine!" << std::endl;
+            you_sunk_a_submarine_colored();
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);
@@ -233,10 +233,10 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
         board[x][yy] = hit;
         ship_life["P"]--;
         clear_screen();
-        std::cout << "You hit a patrol boat!" << std::endl;
+        you_hit_a_patrol_colored();
         if (ship_life["P"] == 0)
         {
-            std::cout << "You sunk the patrol boat!" << std::endl;
+            you_sunk_a_patrol_colored();
         }
         printingss.print_the_colorful_board(name2, visible_board);
         printingss.print_the_colorful_board(name1, board2);

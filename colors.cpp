@@ -99,3 +99,83 @@ void print_colorful_scoreboard_sign()
                                                                                                                                                                               
 )" << hue::reset << '\n';
 }
+
+void print_the_winner(const std::string winner) {
+    std::cout << hue::green << "The winner is " << winner << '\n' << hue::reset;
+}
+
+void enter_coordinates_attack_colored() {
+    std::cout << hue::light_yellow << "Enter the coordinates of the attack: " << hue::reset;
+}
+
+void invalid_coordinates_colored() {
+    std::cout << hue::light_red << "Invalid coordinates!\n" << hue::reset;
+}
+
+void you_missed_colored() {
+    std::cout << hue::light_red << "You missed!\n" << hue::reset;
+}
+
+void you_already_attacked_this_cell_colored() {
+    std::cout << hue::light_red << "You already attacked this cell!\n" << hue::reset;
+}
+
+void you_hit_a_carrier_colored() {
+    std::cout << hue::light_green << "You hit a carrier!\n" << hue::reset;
+}
+
+void you_sunk_a_carrier_colored() {
+    std::cout << hue::light_green << "You sunk a carrier!\n" << hue::reset;
+}
+
+void you_hit_a_battleship_colored() {
+    std::cout << hue::light_green << "You hit a battleship!\n" << hue::reset;
+}
+
+void you_sunk_a_battleship_colored() {
+    std::cout << hue::light_green << "You sunk a battleship!\n" << hue::reset;
+}
+
+void you_hit_a_submarine_colored() {
+    std::cout << hue::light_green << "You hit a submarine!\n" << hue::reset;
+}
+
+void you_sunk_a_submarine_colored() {
+    std::cout << hue::light_green << "You sunk a submarine!\n" << hue::reset;
+}
+
+void you_hit_a_destroyer_colored() {
+    std::cout << hue::light_green << "You hit a destroyer!\n" << hue::reset;
+}
+
+void you_sunk_a_destroyer_colored() {
+    std::cout << hue::light_green << "You sunk a destroyer!\n" << hue::reset;
+}
+
+void you_hit_a_patrol_colored() {
+    std::cout << hue::light_green << "You hit a patrol boat!\n" << hue::reset;
+}
+
+void you_sunk_a_patrol_colored() {
+    std::cout << hue::light_green << "You sunk a patrol boat!\n" << hue::reset;
+}
+
+void print_scoreboard_colored(std::vector<std::string> names1, std::vector<unsigned int> scores1, std::map<std::string, unsigned int> game_scoreboard1)
+{
+    for (unsigned int i = 0; i < scores1.size(); i++)
+    {
+        for (unsigned int j = 0; j < names1.size(); j++)
+        {
+            if (scores1[i] == game_scoreboard1[names1[j]])
+            {
+                std::cout << hue::light_yellow << names1[j] << ": " << scores1[i] << hue::reset << std::endl;
+            }
+        }
+    }
+}
+
+void print_no_scores_yet_colored() {
+    std::cout << hue::light_yellow << "No scores yet!\n" << hue::reset;
+}
+
+
