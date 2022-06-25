@@ -3,6 +3,7 @@
 #include "colorsprint.h"
 #include "Ships.h"
 #include "Scoreboard.h"
+#include "Rules.h"
 
 
 
