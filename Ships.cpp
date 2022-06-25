@@ -12,6 +12,8 @@ Carrier::Carrier ()
 
 void Carrier::create_ship(std::vector<std::vector<char>> &board)
 {
+    printing_stuff printingsssss;
+    std::string cpb = "Current player";
     int x; //x is the row coordinate
     char y; //y is the column coordinate
     std::cout << "Creating the " << ship_name << " ship, that is " << ship_size << " squares long.\n";
@@ -20,6 +22,14 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    {
+        invalid_coordinates_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
+        create_ship(board);
+    }
+    else
+    {
     std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
     int direction;
     std::cin >> direction;
@@ -29,6 +39,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -37,6 +48,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -62,6 +74,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -70,6 +83,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -95,6 +109,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -103,6 +118,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -135,6 +151,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -143,6 +160,7 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -176,7 +194,9 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
     {
         clear_screen();
         print_invalid_direction_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
+    }
     }              
 }
 
@@ -257,6 +277,8 @@ Battleship::Battleship ()
 
 void Battleship::create_ship (std::vector<std::vector<char>> &board)
 {
+    printing_stuff printingsssss;
+    std::string cpb = "Current player";
     unsigned int x; //x is the row coordinate
     unsigned char y; //y is the column coordinate
     std::cout << "Creating the " << ship_name << " ship, that is " << ship_size << " squares long.\n";
@@ -265,6 +287,14 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    {
+        invalid_coordinates_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
+        create_ship(board);
+    }
+    else
+    {
     std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
     int direction;
     std::cin >> direction;
@@ -275,6 +305,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -283,6 +314,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -308,6 +340,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -316,6 +349,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -341,6 +375,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -349,6 +384,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -381,6 +417,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -389,6 +426,7 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -422,7 +460,9 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
     {
         clear_screen();
         print_invalid_direction_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
+    }
     }
   
 }
@@ -436,6 +476,8 @@ Destroyer::Destroyer ()
 
 void Destroyer::create_ship (std::vector<std::vector<char>> &board)
 {
+    printing_stuff printingsssss;
+    std::string cpb = "Current player";
     unsigned int x; //x is the row coordinate
     unsigned char y; //y is the column coordinate
     std::cout << "Creating the " << ship_name << " ship, that is " << ship_size << " squares long.\n";
@@ -444,6 +486,14 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    {
+        invalid_coordinates_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
+        create_ship(board);
+    }
+    else
+    {
     std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
     int direction;
     std::cin >> direction;
@@ -453,6 +503,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -461,6 +512,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -486,6 +538,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -494,6 +547,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -519,6 +573,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -527,6 +582,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -559,6 +615,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -567,6 +624,7 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -600,7 +658,9 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
     {
         clear_screen();
         print_invalid_direction_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
+    }
     }
 
 }
@@ -614,6 +674,8 @@ Submarine::Submarine ()
 
 void Submarine::create_ship (std::vector<std::vector<char>> &board)
 {
+    printing_stuff printingsssss;
+    std::string cpb = "Current player";
     unsigned int x; //x is the row coordinate
     unsigned char y; //y is the column coordinate
     std::cout << "Creating the " << ship_name << " ship, that is " << ship_size << " squares long.\n";
@@ -622,6 +684,14 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    {
+        invalid_coordinates_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
+        create_ship(board);
+    }
+    else
+    {
     std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
     int direction;
     std::cin >> direction;
@@ -631,6 +701,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -639,6 +710,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -664,6 +736,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -672,6 +745,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -697,6 +771,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -705,6 +780,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -737,6 +813,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -745,6 +822,7 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -778,7 +856,9 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
     {
         clear_screen();
         print_invalid_direction_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
+    }
     }
   
 }
@@ -792,6 +872,8 @@ PatrolBoat::PatrolBoat ()
 
 void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
 {
+    printing_stuff printingsssss;
+    std::string cpb = "Current player";
     unsigned int x; //x is the row coordinate
     unsigned char y; //y is the column coordinate
     std::cout << "Creating the " << ship_name << " ship, that is " << ship_size << " squares long.\n";
@@ -800,6 +882,14 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
+    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    {
+        invalid_coordinates_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
+        create_ship(board);
+    }
+    else
+    {
     std::cout << "Which direction will the ship be placed?(1 - Vertical-down, 2 - Vertical-up, 3 - Horizontal-right, 4 - Horizontal-left): ";
     int direction;
     std::cin >> direction;
@@ -809,6 +899,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -817,6 +908,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -842,6 +934,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -850,6 +943,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -875,6 +969,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -883,6 +978,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -915,6 +1011,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
         {
             clear_screen();
             print_too_long_colord();
+            printingsssss.print_the_colorful_board(cpb, board);
             create_ship(board);
         }
         for (unsigned int i = 0; i < ship_size; i++)
@@ -923,6 +1020,7 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
             {
                 clear_screen();
                 print_too_long_colord();
+                printingsssss.print_the_colorful_board(cpb, board);
                 create_ship(board);
             }
         }
@@ -956,7 +1054,9 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
     {
         clear_screen();
         print_invalid_direction_colored();
+        printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
+    }
     }
     for (unsigned int i = 0; i < rows; i++)
     {

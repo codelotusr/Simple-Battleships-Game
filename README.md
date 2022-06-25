@@ -22,6 +22,6 @@ colorsprint - / /
 (DISCLAIMER: A LOT OF THIS CODE IS BAD PRACTICE, BECAUSE I HAD TO SOMEHOW INCLUDE THE REQUIREMENTS INTO THIS PROJECT)
 
 TO-DO
-Add rules with polymorphism math facts
+Fix the multiple game scoreboard error
 Make ship creation error print the board and check for valid coordinates
 Create Player vs A.I
