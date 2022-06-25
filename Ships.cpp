@@ -22,8 +22,9 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
-    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
     {
+        clear_screen();
         invalid_coordinates_colored();
         printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
@@ -287,8 +288,9 @@ void Battleship::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
-    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
     {
+        clear_screen();
         invalid_coordinates_colored();
         printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
@@ -486,8 +488,9 @@ void Destroyer::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
-    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
     {
+        clear_screen();
         invalid_coordinates_colored();
         printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
@@ -684,8 +687,9 @@ void Submarine::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
-    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
     {
+        clear_screen();
         invalid_coordinates_colored();
         printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
@@ -882,8 +886,9 @@ void PatrolBoat::create_ship (std::vector<std::vector<char>> &board)
     std::cout << "Enter the column coordinate of the first cell of the ship(A - J): ";
     std::cin >> y;
     int yy = y - 'A';
-    if (x < 0 || x > rows || yy < 0 || yy > columns)
+    if (x < 0 || x > (rows - 1) || yy < 0 || yy > (columns - 1))
     {
+        clear_screen();
         invalid_coordinates_colored();
         printingsssss.print_the_colorful_board(cpb, board);
         create_ship(board);
