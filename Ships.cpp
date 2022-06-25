@@ -1844,5 +1844,15 @@ void PatrolBoat::create_bot_ship(std::vector<std::vector<char>> &board, std::str
         }
     }
     }
+    for (unsigned int i = 0; i < rows; i++)
+    {
+        for (unsigned int j = 0; j < columns; j++)
+        {
+            if (board[i][j] == '*')
+            {
+                board[i][j] = water;
+            }
+        }
+    }
     is_error = "false";
 }

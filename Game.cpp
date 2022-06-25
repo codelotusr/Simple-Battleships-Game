@@ -188,10 +188,26 @@ void Game::play_with_bot()
         game_scoreboard[player2] = 0;
     }
     GameBoard gameboard;
-    // ++gameboard;
-    // gameboard.insert_player1_ships(player1);
     --gameboard;
     gameboard.insert_bot_ships(player2);
+    ++gameboard;
+    gameboard.insert_player1_ships(player1);
+    player1_ships.clear();
+    bot_ships.clear();
+    player1_ships = {{"C", 5}, {"B", 4}, {"D", 3}, {"S", 3}, {"P", 2}};
+    bot_ships = {{"C", 5}, {"B", 4}, {"D", 3}, {"S", 3}, {"P", 2}};
+    is_over = false;
+    printing_stuff printings;
+    while (!is_over)
+    {
+        printings.print_the_colorful_board(player2, gameboard.bot_visible_board);
+        printings.print_the_colorful_board(player1, gameboard.player1_board);
+        gameboard.attack(gameboard.bot_board, gameboard.bot_visible_board, gameboard.player1_board, gameboard.player1_visible_board, bot_ships, is_over, player1, player2, game_scoreboard);
+        print_press_enter();
+        clear_screen();
+        gameboard.bot_attack(gameboard.player1_board, gameboard.player1_visible_board, gameboard.player2_board, gameboard.player2_visible_board, player1_ships, is_over, player2, player1, game_scoreboard);
+        clear_screen();
+    }
 
 
 }

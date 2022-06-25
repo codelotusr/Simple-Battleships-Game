@@ -154,35 +154,30 @@ void GameBoard::insert_bot_ships(std::string bot_name)
     printing_stuff printing;
     std::string is_error = "true";
     while(is_error == "true") {
-        printing.print_the_colorful_board(bot_name, bot_board);
         carrier.create_bot_ship(bot_board, is_error);
         clear_screen();
     }
     is_error = "true";
     while(is_error == "true") {
-        printing.print_the_colorful_board(bot_name, bot_board);
         battle.create_bot_ship(bot_board, is_error);
         clear_screen();
     }
     is_error = "true";
     while(is_error == "true") {
-        printing.print_the_colorful_board(bot_name, bot_board);
         destroyer.create_bot_ship(bot_board, is_error);
         clear_screen();
     }
     is_error = "true";
     while(is_error == "true") {
-        printing.print_the_colorful_board(bot_name, bot_board);
         sub.create_bot_ship(bot_board, is_error);
         clear_screen();
     }
     is_error = "true";
     while(is_error == "true") {
-        printing.print_the_colorful_board(bot_name, bot_board);
         pboat.create_bot_ship(bot_board, is_error);
         clear_screen();
     }
-    printing.print_the_colorful_board(bot_name, bot_board);
+    print_bot_board_generated();
     print_press_enter();
     clear_screen();
 }
@@ -300,4 +295,70 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
 }
     
 
+}
+
+void GameBoard::bot_attack(std::vector<std::vector<char>> &board, std::vector<std::vector<char>> &visible_board, std::vector<std::vector<char>> &board2, std::vector<std::vector<char>> &visible_board2, std::map<std::string, unsigned int> &ship_life, bool &win, std::string name1, std::string name2, std::map<std::string, unsigned int> &game_scoreboard)
+{
+    if (ship_life["C"] == 0 && ship_life["B"] == 0 && ship_life["D"] == 0 && ship_life["S"] == 0 && ship_life["P"] == 0)
+    {
+        win = true;
+        std::string winner = name1;
+        game_scoreboard[winner]++;
+        clear_screen();
+        print_the_winner(winner);
+    }
+    if (!win)
+    {
+    int x = rand() % rows;
+    int y = rand() % columns;
+    if (x < 0 || x > rows || y < 0 || y > columns)
+    {
+        bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
+    }
+    else if (board[x][y] == water)
+    {
+        visible_board[x][y] = miss;
+        board[x][y] = miss;
+    }
+    else if (board[x][y] == miss)
+    {
+        bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
+    }
+    else if (board[x][y] == 'C')
+    {
+        
+        visible_board[x][y] = hit;
+        board[x][y] = hit;
+        ship_life["C"]--;
+        bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
+    }
+    else if (board[x][y] == 'B')
+    {
+        visible_board[x][y] = hit;
+        board[x][y] = hit;
+        ship_life["B"]--;
+        bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
+    }
+    else if (board[x][y] == 'D')
+    {
+        visible_board[x][y] = hit;
+        board[x][y] = hit;
+        ship_life["D"]--;
+        bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
+    }
+    else if (board[x][y] == 'S')
+    {
+        visible_board[x][y] = hit;
+        board[x][y] = hit;
+        ship_life["S"]--;
+        bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
+    }
+    else if (board[x][y] == 'P')
+    {
+        visible_board[x][y] = hit;
+        board[x][y] = hit;
+        ship_life["P"]--;
+        bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
+    }
+}
 }

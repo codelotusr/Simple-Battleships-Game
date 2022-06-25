@@ -203,4 +203,8 @@ void print_the_colorful_rules()
     std::cout << hue::light_yellow << "Good luck!\n" << hue::reset;
 }
 
+void print_bot_board_generated() {
+    std::cout << hue::light_green << "The bot board has been generated.\n" << hue::reset;
+}
+
 

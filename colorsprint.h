@@ -31,6 +31,7 @@ void print_no_scores_yet_colored();
 void print_too_long_colord();
 void print_invalid_direction_colored();
 void print_the_colorful_rules();
+void print_bot_board_generated();
 
 class printing_stuff : public Game
 {
