@@ -29,7 +29,7 @@ void Game::main_menu()
     case 2:
         //play against the computer
         clear_screen();
-        //play_with_bot();
+        play_with_bot();
         break;
     case 3:
         //rules
@@ -162,5 +162,37 @@ void Game::game_rules()
     print_the_colorful_rules();
     print_press_enter();
     
+}
+
+void Game::play_with_bot()
+{
+    usernames.clear();
+    std::cout << "Please enter username: ";
+    std::cin >> player1;
+    usernames.insert(player1);
+    std::cout << "Please enter the bot's username: ";
+    std::cin >> player2;
+    if (usernames.count(player2)) {
+        clear_screen();
+        throw(GameException("Username already exists. Please try again."));
+    }
+    else {
+        usernames.insert(player2);
+    }
+    if (game_scoreboard.find(player1) == game_scoreboard.end())
+    {
+        game_scoreboard[player1] = 0;
+    }
+    if (game_scoreboard.find(player2) == game_scoreboard.end())
+    {
+        game_scoreboard[player2] = 0;
+    }
+    GameBoard gameboard;
+    // ++gameboard;
+    // gameboard.insert_player1_ships(player1);
+    --gameboard;
+    gameboard.insert_bot_ships(player2);
+
+
 }
 

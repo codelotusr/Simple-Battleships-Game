@@ -22,5 +22,4 @@ colorsprint - / /
 (DISCLAIMER: A LOT OF THIS CODE IS BAD PRACTICE, BECAUSE I HAD TO SOMEHOW INCLUDE THE REQUIREMENTS INTO THIS PROJECT)
 
 TO-DO
-Fix the multiple game scoreboard error
 Create Player vs A.I

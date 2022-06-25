@@ -113,7 +113,7 @@ void GameBoard::insert_player2_ships(std::string p2)
     clear_screen();
 }
 
-void GameBoard::insert_bot_ships()
+void GameBoard::insert_bot_ships(std::string bot_name)
 {
     unsigned int direction;
     unsigned int x, y;
@@ -124,10 +124,8 @@ void GameBoard::insert_bot_ships()
     Submarine sub;
     PatrolBoat pboat;
     printing_stuff printing;
-    printing.print_the_colorful_board("Bot", bot_board);
-    carrier.create_bot_ship(x, y, direction, bot_board);
-    clear_screen();
-    printing.print_the_colorful_board("Bot", bot_board);
+    carrier.create_bot_ship(bot_board);
+    printing.print_the_colorful_board(bot_name, bot_board);
     print_press_enter();
     clear_screen();
 }

@@ -201,71 +201,143 @@ void Carrier::create_ship(std::vector<std::vector<char>> &board)
     }              
 }
 
-//createa function that randomly generates the bot ship placement
-void Carrier::create_bot_ship(unsigned int &bot_x, unsigned int &bot_y, unsigned int &direction, std::vector<std::vector<char>> &board)
+//based on the create_ship function, this function will create a ship in the board randomly.
+void Carrier::create_bot_ship(std::vector<std::vector<char>> &board)
 {
-    unsigned int rows = board.size();
-    unsigned int columns = board[0].size();
-    unsigned int random_x = rand() % rows;
-    unsigned int random_y = rand() % columns;
-    unsigned int random_direction = rand() % 4;
-    if (random_direction == 0)
+    unsigned int x = rand() % rows;
+    unsigned int yy = rand() % columns;
+    unsigned int direction = rand() % 4;
+    if (direction == 0)
     {
-        if (random_x + ship_size > rows)
+        if (x + ship_size > rows)
         {
-            create_bot_ship(bot_x, bot_y, direction, board);
+            create_bot_ship(board);
         }
-        else
+        for (unsigned int i = 0; i < ship_size; i++)
         {
-            bot_x = random_x;
-            bot_y = random_y;
-            direction = random_direction;
+            if (board[x + i][yy] != water)
+            {
+                create_bot_ship(board);
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x + i][yy] = ship_symbol;
+            if ((board[x + i + 1][yy] == water) && ((x + i + 1) < rows)) board[x + i + 1][yy] = '*';
+            if ((board[x + i][yy + 1] == water) && ((yy + 1) < columns)) board[x + i][yy + 1] = '*';
+            if ((board[x + i][yy - 1] == water) && ((yy - 1) >= 0)) board[x + i][yy - 1] = '*';
+            if ((board[x + i + 1][yy + 1] == water) && ((x + i + 1) < rows) && ((yy + 1) < columns)) board[x + i + 1][yy + 1] = '*';
+            if ((board[x + i + 1][yy - 1] == water) && ((x + i + 1) < rows) && ((yy - 1) >= 0)) board[x + i + 1][yy - 1] = '*';
+        }
+        if (x != 0)
+        {
+            if (board[x - 1][yy] == water) board[x - 1][yy] = '*';
+            if ((board[x - 1][yy + 1] == water) && ((yy + 1) < columns)) board[x - 1][yy + 1] = '*';
+            if ((board[x - 1][yy - 1] == water) && ((yy - 1) >= 0)) board[x - 1][yy - 1] = '*';
         }
     }
-    else if (random_direction == 1)
+    else if (direction == 1)
     {
-        if (random_y + ship_size > columns)
+        if (yy + ship_size > columns)
         {
-            create_bot_ship(bot_x, bot_y, direction, board);
+            create_bot_ship(board);
         }
-        else
+        for (unsigned int i = 0; i < ship_size; i++)
         {
-            bot_x = random_x;
-            bot_y = random_y;
-            direction = random_direction;
+            if (board[x][yy + i] != water)
+            {
+                create_bot_ship(board);
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x - i][yy] = ship_symbol;
+            if ((board[x - i + 1][yy] == water) && ((x - i + 1) < rows)) board[x - i + 1][yy] = '*';
+            if ((board[x - i][yy + 1] == water) && ((yy + 1) < columns)) board[x - i][yy + 1] = '*';
+            if ((board[x - i][yy - 1] == water) && ((yy - 1) >= 0)) board[x - i][yy - 1] = '*';
+            if ((board[x - i + 1][yy + 1] == water) && ((x - i + 1) < rows) && ((yy + 1) < columns)) board[x - i + 1][yy + 1] = '*';
+            if ((board[x - i + 1][yy - 1] == water) && ((x - i + 1) < rows) && ((yy - 1) >= 0)) board[x - i + 1][yy - 1] = '*';
+        }
+        if (x != (ship_size - 1))
+        {
+            if ((board[x - ship_size][yy + 1] == water) && ((yy + 1) < columns)) board[x - ship_size][yy + 1] = '*';
+            if ((board[x - ship_size][yy - 1] == water) && ((yy - 1) >= 0)) board[x - ship_size][yy - 1] = '*';
+            if ((board[x - ship_size][yy] == water)) board[x - ship_size][yy] = '*';
         }
     }
-    else if (random_direction == 2)
+    else if (direction == 2)
     {
-        if (random_x - ship_size < 0)
+        if (x - ship_size < 0)
         {
-            create_bot_ship(bot_x, bot_y, direction, board);
+            create_bot_ship(board);
         }
-        else
+        for (unsigned int i = 0; i < ship_size; i++)
         {
-            bot_x = random_x;
-            bot_y = random_y;
-            direction = random_direction;
+            if (board[x - i][yy] != water)
+            {
+                create_bot_ship(board);
+            }
+        }
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy + i] = ship_symbol;
+            if ((board[x + 1][yy + i] == water) && ((x + 1) < rows)) board[x + 1][yy + i] = '*';
+            if (x != 0)
+            {
+                if ((board[x - 1][yy + i] == water)) board[x - 1][yy + i] = '*';
+                if ((board[x - 1][yy + i + 1] == water) && ((yy + i + 1) < columns)) board[x - 1][yy + i + 1] = '*';
+                if (yy != 0)
+                {
+                    if ((board[x - 1][yy + i - 1] == water)) board[x - 1][yy + i - 1] = '*';
+                }
+            }
+            if ((board[x][yy + i + 1] == water) && ((yy + i + 1) < columns)) board[x][yy + i + 1] = '*';
+            if (yy != 0)
+            {
+                if ((board[x][yy + i - 1] == water)) board[x][yy + i - 1] = '*';
+                if ((board[x + 1][yy + i - 1] == water) && ((x + 1) < rows)) board[x + 1][yy + i - 1] = '*';
+            }
+            
+            if ((board[x + 1][yy + i + 1] == water) && ((x + 1) < rows) && ((yy + i + 1) < columns)) board[x + 1][yy + i + 1] = '*';
         }
     }
-    else if (random_direction == 3)
+    else if (direction == 3)
     {
-        if (random_y - ship_size < 0)
+        if (yy - ship_size < 0)
         {
-            create_bot_ship(bot_x, bot_y, direction, board);
+            create_bot_ship(board);
         }
-        else
+        for (unsigned int i = 0; i < ship_size; i++)
         {
-            bot_x = random_x;
-            bot_y = random_y;
-            direction = random_direction;
+            if (board[x][yy - i] != water)
+            {
+                create_bot_ship(board);
+            }
         }
-    }
-    else
-    {
-        clear_screen();
-        print_invalid_direction_colored();
-        create_ship(board);
+        for (unsigned int i = 0; i < ship_size; i++)
+        {
+            board[x][yy - i] = ship_symbol;
+            if ((board[x + 1][yy - i] == water) && ((x + 1) < rows)) board[x + 1][yy - i] = '*';
+            if ((board[x][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x][yy - i + 1] = '*';
+            if ((board[x + 1][yy - i + 1] == water) && ((x + 1) < rows) && ((yy - i + 1) < columns)) board[x + 1][yy - i + 1] = '*';
+            if (x != 0)
+            {
+                if ((board[x - 1][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x - 1][yy - i + 1] = '*';
+                if (yy != 0)
+                {
+                    if ((board[x - 1][yy - i] == water)) board[x - 1][yy - i] = '*';
+                }
+            }
+            if (yy - (ship_size - 1) != 0)
+            {
+                if ((board[x][yy - i - 1] == water)) board[x][yy - i - 1] = '*';
+                if ((board[x + 1][yy - i - 1] == water)) board[x + 1][yy - i - 1] = '*';
+                if (x != 0)
+                {
+                    if ((board[x - 1][yy - i - 1] == water)) board[x - 1][yy - i - 1] = '*';
+                }
+        }
+        }
     }
 }
 
