@@ -152,8 +152,36 @@ void GameBoard::insert_bot_ships(std::string bot_name)
     Submarine sub;
     PatrolBoat pboat;
     printing_stuff printing;
-    carrier.create_bot_ship(bot_board);
-    //battle.create_bot_ship(bot_board);
+    std::string is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(bot_name, bot_board);
+        carrier.create_bot_ship(bot_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(bot_name, bot_board);
+        battle.create_bot_ship(bot_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(bot_name, bot_board);
+        destroyer.create_bot_ship(bot_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(bot_name, bot_board);
+        sub.create_bot_ship(bot_board, is_error);
+        clear_screen();
+    }
+    is_error = "true";
+    while(is_error == "true") {
+        printing.print_the_colorful_board(bot_name, bot_board);
+        pboat.create_bot_ship(bot_board, is_error);
+        clear_screen();
+    }
     printing.print_the_colorful_board(bot_name, bot_board);
     print_press_enter();
     clear_screen();

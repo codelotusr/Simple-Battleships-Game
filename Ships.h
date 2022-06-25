@@ -17,7 +17,7 @@ class Carrier : public Ships
 public:
     Carrier();
     void create_ship(std::vector<std::vector<char>> &board, std::string &is_error);
-    void create_bot_ship(std::vector<std::vector<char>> &board);
+    void create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error);
 protected:
     unsigned int ship_size;
     char ship_symbol;
@@ -29,7 +29,7 @@ class Battleship : public Ships
 public:
     Battleship();
     void create_ship(std::vector<std::vector<char>> &board, std::string &is_error);
-    void create_bot_ship(std::vector<std::vector<char>> &board);
+    void create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error);
 protected:
     unsigned int ship_size;
     char ship_symbol;
@@ -42,7 +42,7 @@ class Destroyer : public Ships
 public:
     Destroyer();
     void create_ship(std::vector<std::vector<char>> &board, std::string &is_error);
-    void create_bot_ship(std::vector<std::vector<char>> &board);
+    void create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error);
 protected:
     unsigned int ship_size;
     char ship_symbol;
@@ -54,7 +54,7 @@ class Submarine : public Ships
 public:
     Submarine();
     void create_ship(std::vector<std::vector<char>> &board, std::string &is_error);
-    void create_bot_ship(std::vector<std::vector<char>> &board);
+    void create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error);
 
 protected:
     unsigned int ship_size;
@@ -67,7 +67,7 @@ class PatrolBoat : public Ships
 public:
     PatrolBoat();
     void create_ship(std::vector<std::vector<char>> &board, std::string &is_error);
-    void create_bot_ship(std::vector<std::vector<char>> &board);
+    void create_bot_ship(std::vector<std::vector<char>> &board, std::string &is_error);
 protected:
     unsigned int ship_size;
     char ship_symbol;
