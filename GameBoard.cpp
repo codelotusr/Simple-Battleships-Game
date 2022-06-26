@@ -199,6 +199,10 @@ void GameBoard::attack(std::vector<std::vector<char>> &board, std::vector<std::v
     {
     enter_coordinates_attack_colored();
     std::cin >> x >> y;
+    if (y == 'Q')
+    {
+        throw(GameException("You quit the current game"));
+    }
     int yy = y - 'A';
     if (x < 0 || x > rows || yy < 0 || yy > columns)
     {
