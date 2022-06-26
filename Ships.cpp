@@ -222,7 +222,7 @@ void Carrier::create_bot_ship(std::vector<std::vector<char>> &board, std::string
     }
     else
     {
-    unsigned int direction = rand() % 4;
+    unsigned int direction = rand() % 2;
     if (direction == 0)
     {
         if (x + ship_size > rows)
@@ -255,37 +255,6 @@ void Carrier::create_bot_ship(std::vector<std::vector<char>> &board, std::string
         }
     }
     else if (direction == 1)
-    {
-        if (x < 4)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy + i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x - i][yy] = ship_symbol;
-            if ((board[x - i + 1][yy] == water) && ((x - i + 1) < rows)) board[x - i + 1][yy] = '*';
-            if ((board[x - i][yy + 1] == water) && ((yy + 1) < columns)) board[x - i][yy + 1] = '*';
-            if ((board[x - i][yy - 1] == water) && ((yy - 1) >= 0)) board[x - i][yy - 1] = '*';
-            if ((board[x - i + 1][yy + 1] == water) && ((x - i + 1) < rows) && ((yy + 1) < columns)) board[x - i + 1][yy + 1] = '*';
-            if ((board[x - i + 1][yy - 1] == water) && ((x - i + 1) < rows) && ((yy - 1) >= 0)) board[x - i + 1][yy - 1] = '*';
-        }
-        if (x != (ship_size - 1))
-        {
-            if ((board[x - ship_size][yy + 1] == water) && ((yy + 1) < columns)) board[x - ship_size][yy + 1] = '*';
-            if ((board[x - ship_size][yy - 1] == water) && ((yy - 1) >= 0)) board[x - ship_size][yy - 1] = '*';
-            if ((board[x - ship_size][yy] == water)) board[x - ship_size][yy] = '*';
-        }
-    }
-    else if (direction == 2)
     {
         if (yy + ship_size > columns)
         {
@@ -321,47 +290,6 @@ void Carrier::create_bot_ship(std::vector<std::vector<char>> &board, std::string
             }
             
             if ((board[x + 1][yy + i + 1] == water) && ((x + 1) < rows) && ((yy + i + 1) < columns)) board[x + 1][yy + i + 1] = '*';
-        }
-    }
-    else if (direction == 3)
-    {
-        if (yy < 4)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy - i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x][yy - i] = ship_symbol;
-            if ((board[x + 1][yy - i] == water) && ((x + 1) < rows)) board[x + 1][yy - i] = '*';
-            if ((board[x][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x][yy - i + 1] = '*';
-            if ((board[x + 1][yy - i + 1] == water) && ((x + 1) < rows) && ((yy - i + 1) < columns)) board[x + 1][yy - i + 1] = '*';
-            if (x != 0)
-            {
-                if ((board[x - 1][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x - 1][yy - i + 1] = '*';
-                if (yy != 0)
-                {
-                    if ((board[x - 1][yy - i] == water)) board[x - 1][yy - i] = '*';
-                }
-            }
-            if (yy - (ship_size - 1) != 0)
-            {
-                if ((board[x][yy - i - 1] == water)) board[x][yy - i - 1] = '*';
-                if ((board[x + 1][yy - i - 1] == water)) board[x + 1][yy - i - 1] = '*';
-                if (x != 0)
-                {
-                    if ((board[x - 1][yy - i - 1] == water)) board[x - 1][yy - i - 1] = '*';
-                }
-            }
-
         }
     }
     }
@@ -590,7 +518,7 @@ void Battleship::create_bot_ship(std::vector<std::vector<char>> &board, std::str
     }
     else
     {
-    unsigned int direction = rand() % 4;
+    unsigned int direction = rand() % 2;
     if (direction == 0)
     {
         if (x + ship_size > rows)
@@ -623,37 +551,6 @@ void Battleship::create_bot_ship(std::vector<std::vector<char>> &board, std::str
         }
     }
     else if (direction == 1)
-    {
-        if (x < 3)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy + i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x - i][yy] = ship_symbol;
-            if ((board[x - i + 1][yy] == water) && ((x - i + 1) < rows)) board[x - i + 1][yy] = '*';
-            if ((board[x - i][yy + 1] == water) && ((yy + 1) < columns)) board[x - i][yy + 1] = '*';
-            if ((board[x - i][yy - 1] == water) && ((yy - 1) >= 0)) board[x - i][yy - 1] = '*';
-            if ((board[x - i + 1][yy + 1] == water) && ((x - i + 1) < rows) && ((yy + 1) < columns)) board[x - i + 1][yy + 1] = '*';
-            if ((board[x - i + 1][yy - 1] == water) && ((x - i + 1) < rows) && ((yy - 1) >= 0)) board[x - i + 1][yy - 1] = '*';
-        }
-        if (x != (ship_size - 1))
-        {
-            if ((board[x - ship_size][yy + 1] == water) && ((yy + 1) < columns)) board[x - ship_size][yy + 1] = '*';
-            if ((board[x - ship_size][yy - 1] == water) && ((yy - 1) >= 0)) board[x - ship_size][yy - 1] = '*';
-            if ((board[x - ship_size][yy] == water)) board[x - ship_size][yy] = '*';
-        }
-    }
-    else if (direction == 2)
     {
         if (yy + ship_size > columns)
         {
@@ -689,47 +586,6 @@ void Battleship::create_bot_ship(std::vector<std::vector<char>> &board, std::str
             }
             
             if ((board[x + 1][yy + i + 1] == water) && ((x + 1) < rows) && ((yy + i + 1) < columns)) board[x + 1][yy + i + 1] = '*';
-        }
-    }
-    else if (direction == 3)
-    {
-        if (yy < 3)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy - i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x][yy - i] = ship_symbol;
-            if ((board[x + 1][yy - i] == water) && ((x + 1) < rows)) board[x + 1][yy - i] = '*';
-            if ((board[x][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x][yy - i + 1] = '*';
-            if ((board[x + 1][yy - i + 1] == water) && ((x + 1) < rows) && ((yy - i + 1) < columns)) board[x + 1][yy - i + 1] = '*';
-            if (x != 0)
-            {
-                if ((board[x - 1][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x - 1][yy - i + 1] = '*';
-                if (yy != 0)
-                {
-                    if ((board[x - 1][yy - i] == water)) board[x - 1][yy - i] = '*';
-                }
-            }
-            if (yy - (ship_size - 1) != 0)
-            {
-                if ((board[x][yy - i - 1] == water)) board[x][yy - i - 1] = '*';
-                if ((board[x + 1][yy - i - 1] == water)) board[x + 1][yy - i - 1] = '*';
-                if (x != 0)
-                {
-                    if ((board[x - 1][yy - i - 1] == water)) board[x - 1][yy - i - 1] = '*';
-                }
-            }
-
         }
     }
     }
@@ -958,7 +814,7 @@ void Destroyer::create_bot_ship(std::vector<std::vector<char>> &board, std::stri
     }
     else
     {
-    unsigned int direction = rand() % 4;
+    unsigned int direction = rand() % 2;
     if (direction == 0)
     {
         if (x + ship_size > rows)
@@ -991,37 +847,6 @@ void Destroyer::create_bot_ship(std::vector<std::vector<char>> &board, std::stri
         }
     }
     else if (direction == 1)
-    {
-        if (x < 2)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy + i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x - i][yy] = ship_symbol;
-            if ((board[x - i + 1][yy] == water) && ((x - i + 1) < rows)) board[x - i + 1][yy] = '*';
-            if ((board[x - i][yy + 1] == water) && ((yy + 1) < columns)) board[x - i][yy + 1] = '*';
-            if ((board[x - i][yy - 1] == water) && ((yy - 1) >= 0)) board[x - i][yy - 1] = '*';
-            if ((board[x - i + 1][yy + 1] == water) && ((x - i + 1) < rows) && ((yy + 1) < columns)) board[x - i + 1][yy + 1] = '*';
-            if ((board[x - i + 1][yy - 1] == water) && ((x - i + 1) < rows) && ((yy - 1) >= 0)) board[x - i + 1][yy - 1] = '*';
-        }
-        if (x != (ship_size - 1))
-        {
-            if ((board[x - ship_size][yy + 1] == water) && ((yy + 1) < columns)) board[x - ship_size][yy + 1] = '*';
-            if ((board[x - ship_size][yy - 1] == water) && ((yy - 1) >= 0)) board[x - ship_size][yy - 1] = '*';
-            if ((board[x - ship_size][yy] == water)) board[x - ship_size][yy] = '*';
-        }
-    }
-    else if (direction == 2)
     {
         if (yy + ship_size > columns)
         {
@@ -1057,47 +882,6 @@ void Destroyer::create_bot_ship(std::vector<std::vector<char>> &board, std::stri
             }
             
             if ((board[x + 1][yy + i + 1] == water) && ((x + 1) < rows) && ((yy + i + 1) < columns)) board[x + 1][yy + i + 1] = '*';
-        }
-    }
-    else if (direction == 3)
-    {
-        if (yy < 2)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy - i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x][yy - i] = ship_symbol;
-            if ((board[x + 1][yy - i] == water) && ((x + 1) < rows)) board[x + 1][yy - i] = '*';
-            if ((board[x][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x][yy - i + 1] = '*';
-            if ((board[x + 1][yy - i + 1] == water) && ((x + 1) < rows) && ((yy - i + 1) < columns)) board[x + 1][yy - i + 1] = '*';
-            if (x != 0)
-            {
-                if ((board[x - 1][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x - 1][yy - i + 1] = '*';
-                if (yy != 0)
-                {
-                    if ((board[x - 1][yy - i] == water)) board[x - 1][yy - i] = '*';
-                }
-            }
-            if (yy - (ship_size - 1) != 0)
-            {
-                if ((board[x][yy - i - 1] == water)) board[x][yy - i - 1] = '*';
-                if ((board[x + 1][yy - i - 1] == water)) board[x + 1][yy - i - 1] = '*';
-                if (x != 0)
-                {
-                    if ((board[x - 1][yy - i - 1] == water)) board[x - 1][yy - i - 1] = '*';
-                }
-            }
-
         }
     }
     }
@@ -1325,7 +1109,7 @@ void Submarine::create_bot_ship(std::vector<std::vector<char>> &board, std::stri
     }
     else
     {
-    unsigned int direction = rand() % 4;
+    unsigned int direction = rand() % 2;
     if (direction == 0)
     {
         if (x + ship_size > rows)
@@ -1358,37 +1142,6 @@ void Submarine::create_bot_ship(std::vector<std::vector<char>> &board, std::stri
         }
     }
     else if (direction == 1)
-    {
-        if (x < 2)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy + i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x - i][yy] = ship_symbol;
-            if ((board[x - i + 1][yy] == water) && ((x - i + 1) < rows)) board[x - i + 1][yy] = '*';
-            if ((board[x - i][yy + 1] == water) && ((yy + 1) < columns)) board[x - i][yy + 1] = '*';
-            if ((board[x - i][yy - 1] == water) && ((yy - 1) >= 0)) board[x - i][yy - 1] = '*';
-            if ((board[x - i + 1][yy + 1] == water) && ((x - i + 1) < rows) && ((yy + 1) < columns)) board[x - i + 1][yy + 1] = '*';
-            if ((board[x - i + 1][yy - 1] == water) && ((x - i + 1) < rows) && ((yy - 1) >= 0)) board[x - i + 1][yy - 1] = '*';
-        }
-        if (x != (ship_size - 1))
-        {
-            if ((board[x - ship_size][yy + 1] == water) && ((yy + 1) < columns)) board[x - ship_size][yy + 1] = '*';
-            if ((board[x - ship_size][yy - 1] == water) && ((yy - 1) >= 0)) board[x - ship_size][yy - 1] = '*';
-            if ((board[x - ship_size][yy] == water)) board[x - ship_size][yy] = '*';
-        }
-    }
-    else if (direction == 2)
     {
         if (yy + ship_size > columns)
         {
@@ -1424,47 +1177,6 @@ void Submarine::create_bot_ship(std::vector<std::vector<char>> &board, std::stri
             }
             
             if ((board[x + 1][yy + i + 1] == water) && ((x + 1) < rows) && ((yy + i + 1) < columns)) board[x + 1][yy + i + 1] = '*';
-        }
-    }
-    else if (direction == 3)
-    {
-        if (yy < 2)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy - i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x][yy - i] = ship_symbol;
-            if ((board[x + 1][yy - i] == water) && ((x + 1) < rows)) board[x + 1][yy - i] = '*';
-            if ((board[x][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x][yy - i + 1] = '*';
-            if ((board[x + 1][yy - i + 1] == water) && ((x + 1) < rows) && ((yy - i + 1) < columns)) board[x + 1][yy - i + 1] = '*';
-            if (x != 0)
-            {
-                if ((board[x - 1][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x - 1][yy - i + 1] = '*';
-                if (yy != 0)
-                {
-                    if ((board[x - 1][yy - i] == water)) board[x - 1][yy - i] = '*';
-                }
-            }
-            if (yy - (ship_size - 1) != 0)
-            {
-                if ((board[x][yy - i - 1] == water)) board[x][yy - i - 1] = '*';
-                if ((board[x + 1][yy - i - 1] == water)) board[x + 1][yy - i - 1] = '*';
-                if (x != 0)
-                {
-                    if ((board[x - 1][yy - i - 1] == water)) board[x - 1][yy - i - 1] = '*';
-                }
-            }
-
         }
     }
     }
@@ -1701,7 +1413,7 @@ void PatrolBoat::create_bot_ship(std::vector<std::vector<char>> &board, std::str
     }
     else
     {
-    unsigned int direction = rand() % 4;
+    unsigned int direction = rand() % 2;
     if (direction == 0)
     {
         if (x + ship_size > rows)
@@ -1734,37 +1446,6 @@ void PatrolBoat::create_bot_ship(std::vector<std::vector<char>> &board, std::str
         }
     }
     else if (direction == 1)
-    {
-        if (x < 1)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy + i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x - i][yy] = ship_symbol;
-            if ((board[x - i + 1][yy] == water) && ((x - i + 1) < rows)) board[x - i + 1][yy] = '*';
-            if ((board[x - i][yy + 1] == water) && ((yy + 1) < columns)) board[x - i][yy + 1] = '*';
-            if ((board[x - i][yy - 1] == water) && ((yy - 1) >= 0)) board[x - i][yy - 1] = '*';
-            if ((board[x - i + 1][yy + 1] == water) && ((x - i + 1) < rows) && ((yy + 1) < columns)) board[x - i + 1][yy + 1] = '*';
-            if ((board[x - i + 1][yy - 1] == water) && ((x - i + 1) < rows) && ((yy - 1) >= 0)) board[x - i + 1][yy - 1] = '*';
-        }
-        if (x != (ship_size - 1))
-        {
-            if ((board[x - ship_size][yy + 1] == water) && ((yy + 1) < columns)) board[x - ship_size][yy + 1] = '*';
-            if ((board[x - ship_size][yy - 1] == water) && ((yy - 1) >= 0)) board[x - ship_size][yy - 1] = '*';
-            if ((board[x - ship_size][yy] == water)) board[x - ship_size][yy] = '*';
-        }
-    }
-    else if (direction == 2)
     {
         if (yy + ship_size > columns)
         {
@@ -1800,47 +1481,6 @@ void PatrolBoat::create_bot_ship(std::vector<std::vector<char>> &board, std::str
             }
             
             if ((board[x + 1][yy + i + 1] == water) && ((x + 1) < rows) && ((yy + i + 1) < columns)) board[x + 1][yy + i + 1] = '*';
-        }
-    }
-    else if (direction == 3)
-    {
-        if (yy < 1)
-        {
-            is_error = "true";
-            return;
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            if (board[x][yy - i] != water)
-            {
-                is_error = "true";
-            return;
-            }
-        }
-        for (unsigned int i = 0; i < ship_size; i++)
-        {
-            board[x][yy - i] = ship_symbol;
-            if ((board[x + 1][yy - i] == water) && ((x + 1) < rows)) board[x + 1][yy - i] = '*';
-            if ((board[x][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x][yy - i + 1] = '*';
-            if ((board[x + 1][yy - i + 1] == water) && ((x + 1) < rows) && ((yy - i + 1) < columns)) board[x + 1][yy - i + 1] = '*';
-            if (x != 0)
-            {
-                if ((board[x - 1][yy - i + 1] == water) && ((yy - i + 1) < columns)) board[x - 1][yy - i + 1] = '*';
-                if (yy != 0)
-                {
-                    if ((board[x - 1][yy - i] == water)) board[x - 1][yy - i] = '*';
-                }
-            }
-            if (yy - (ship_size - 1) != 0)
-            {
-                if ((board[x][yy - i - 1] == water)) board[x][yy - i - 1] = '*';
-                if ((board[x + 1][yy - i - 1] == water)) board[x + 1][yy - i - 1] = '*';
-                if (x != 0)
-                {
-                    if ((board[x - 1][yy - i - 1] == water)) board[x - 1][yy - i - 1] = '*';
-                }
-            }
-
         }
     }
     }

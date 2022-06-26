@@ -325,11 +325,73 @@ void GameBoard::bot_attack(std::vector<std::vector<char>> &board, std::vector<st
         bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][y] == 'C')
-    {
-        
+    { 
         visible_board[x][y] = hit;
         board[x][y] = hit;
         ship_life["C"]--;
+        int rand_shot = rand() % 2;
+        if (rand_shot == 0)
+        {
+            ++x;
+            if (board[x][y] == 'C')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["C"]--;
+                ++x;
+                if (board[x][y] == 'C')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["C"]--;
+                    ++x;
+                    if (board[x][y] == 'C')
+                    {
+                        visible_board[x][y] = hit;
+                        board[x][y] = hit;
+                        ship_life["C"]--;
+                        ++x;
+                        if (board[x][y] == 'C')
+                        {
+                            visible_board[x][y] = hit;
+                            board[x][y] = hit;
+                            ship_life["C"]--;
+                        }
+                    }
+                }
+            }
+        }
+        else
+        {
+            ++y;
+            if (board[x][y] == 'C')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["C"]--;
+                ++y;
+                if (board[x][y] == 'C')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["C"]--;
+                    ++y;
+                    if (board[x][y] == 'C')
+                    {
+                        visible_board[x][y] = hit;
+                        board[x][y] = hit;
+                        ship_life["C"]--;
+                        ++y;
+                        if (board[x][y] == 'C')
+                        {
+                            visible_board[x][y] = hit;
+                            board[x][y] = hit;
+                            ship_life["C"]--;
+                        }
+                    }
+                }
+            }
+        }
         bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][y] == 'B')
@@ -337,6 +399,55 @@ void GameBoard::bot_attack(std::vector<std::vector<char>> &board, std::vector<st
         visible_board[x][y] = hit;
         board[x][y] = hit;
         ship_life["B"]--;
+        int rand_shot = rand() % 2;
+        if (rand_shot == 0)
+        {
+            ++x;
+            if (board[x][y] == 'B')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["B"]--;
+                ++x;
+                if (board[x][y] == 'B')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["B"]--;
+                    ++x;
+                    if (board[x][y] == 'B')
+                    {
+                        visible_board[x][y] = hit;
+                        board[x][y] = hit;
+                        ship_life["B"]--;
+                    }
+                }
+            }
+        }
+        else
+        {
+            ++y;
+            if (board[x][y] == 'B')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["B"]--;
+                ++y;
+                if (board[x][y] == 'B')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["B"]--;
+                    ++y;
+                    if (board[x][y] == 'B')
+                    {
+                        visible_board[x][y] = hit;
+                        board[x][y] = hit;
+                        ship_life["B"]--;
+                    }
+                }
+            }
+        }
         bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][y] == 'D')
@@ -344,6 +455,41 @@ void GameBoard::bot_attack(std::vector<std::vector<char>> &board, std::vector<st
         visible_board[x][y] = hit;
         board[x][y] = hit;
         ship_life["D"]--;
+        int rand_shot = rand() % 2;
+        if (rand_shot == 0)
+        {
+            ++x;
+            if (board[x][y] == 'D')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["D"]--;
+                ++x;
+                if (board[x][y] == 'D')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["D"]--;
+                }
+            }
+        }
+        else
+        {
+            ++y;
+            if (board[x][y] == 'D')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["D"]--;
+                ++y;
+                if (board[x][y] == 'D')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["D"]--;
+                }
+            }
+        }
         bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][y] == 'S')
@@ -351,6 +497,41 @@ void GameBoard::bot_attack(std::vector<std::vector<char>> &board, std::vector<st
         visible_board[x][y] = hit;
         board[x][y] = hit;
         ship_life["S"]--;
+        int rand_shot = rand() % 2;
+        if (rand_shot == 0)
+        {
+            ++x;
+            if (board[x][y] == 'S')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["S"]--;
+                ++x;
+                if (board[x][y] == 'S')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["S"]--;
+                }
+            }
+        }
+        else
+        {
+            ++y;
+            if (board[x][y] == 'S')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["S"]--;
+                ++y;
+                if (board[x][y] == 'S')
+                {
+                    visible_board[x][y] = hit;
+                    board[x][y] = hit;
+                    ship_life["S"]--;
+                }
+            }
+        }
         bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
     else if (board[x][y] == 'P')
@@ -358,6 +539,27 @@ void GameBoard::bot_attack(std::vector<std::vector<char>> &board, std::vector<st
         visible_board[x][y] = hit;
         board[x][y] = hit;
         ship_life["P"]--;
+        int rand_shot = rand() % 2;
+        if (rand_shot == 0)
+        {
+            ++x;
+            if (board[x][y] == 'P')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["P"]--;
+            }
+        }
+        else
+        {
+            ++y;
+            if (board[x][y] == 'P')
+            {
+                visible_board[x][y] = hit;
+                board[x][y] = hit;
+                ship_life["P"]--;
+            }
+        }
         bot_attack(board, visible_board, board2, visible_board2, ship_life, win, name1, name2, game_scoreboard);
     }
 }
