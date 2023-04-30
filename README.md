@@ -4,22 +4,7 @@ This is a very simple battleships game intended to be my first year university p
 External header files used for colors:
 https://github.com/imfl/color-console
 
-
-Header functionality explanation:
-
-Game - / /
-
-GameBoard - / /
-
-Player - / /
-
-Scoreboard - / /
-
-Ships - / /
-
-colorsprint - / /
-
 (DISCLAIMER: A LOT OF THIS CODE IS BAD PRACTICE, BECAUSE I HAD TO SOMEHOW INCLUDE THE REQUIREMENTS INTO THIS PROJECT)
 
 TO-DO
-Create Player vs A.I
+Improve Player vs A.I
