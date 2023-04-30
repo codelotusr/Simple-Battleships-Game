@@ -8,3 +8,4 @@ https://github.com/imfl/color-console
 
 TO-DO
 Improve Player vs A.I
+Remove/re-write unnecessary code
